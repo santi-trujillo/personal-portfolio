@@ -58,7 +58,7 @@ html, body {
 }
 
 body {
-  background: var(--gradient-background);
+  background: transparent;
   color: var(--color-text-primary);
   font-family: var(--font-family-primary);
   line-height: 1.5;
@@ -66,6 +66,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* Evitar scroll horizontal indeseado */
   overflow-x: hidden; 
+}
+
+#app-container {
+  background: transparent;
 }
 
 /* Reset de Tipografía Base */

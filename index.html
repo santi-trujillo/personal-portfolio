@@ -31,66 +31,43 @@
         <div class="nx-portfolio-wrapper">
             <!-- Columna Izquierda: Perfil / Navegación -->
             <aside class="nx-sidebar">
+              <!-- Contenedor Maestro para separar el Avatar de la Máscara -->
+              <div class="nx-profile-container">
+                
+                <!-- Avatar Independiente (No será afectado por la máscara de la tarjeta) -->
+                <div class="nx-avatar-box">ST</div>
+                
+                <!-- Tarjeta con el Cutout -->
                 <div class="nx-profile-card">
-                    <div class="nx-avatar-box">
-                        <div style="width: 100%; height: 100%; background-color: #2a2a35; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: #fff;">ST</div>
-                    </div>
-                    
-                    <div class="nx-profile-info">
-                        <h1>SANTIAGO TRUJILLO</h1>
-                        <p class="nx-handle">IT Project Manager & Front-End Developer</p>
-                    </div>
-                    
-                    <!-- Fila de Métricas -->
-                    <div class="nx-social-metrics">
-                        <div class="nx-metric-box">
-                            <span class="nx-icon">✨</span>
-                            <span class="nx-num">7+ Años</span>
-                        </div>
-                        <div class="nx-metric-box">
-                            <span class="nx-icon">🚀</span>
-                            <span class="nx-num">B2B</span>
-                        </div>
-                        <div class="nx-metric-box">
-                            <span class="nx-icon">📈</span>
-                            <span class="nx-num">Agile</span>
-                        </div>
-                        <div class="nx-metric-box">
-                            <span class="nx-icon">💻</span>
-                            <span class="nx-num">JS/TS</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Meta-datos y Bio -->
-                    <ul class="nx-bio-list">
-                        <li>
-                            <span class="nx-icon">⚙️</span>
-                            <span class="nx-text">Coordinación de equipos multidisciplinarios y metodologías ágiles (Scrum).</span>
-                        </li>
-                        <li>
-                            <span class="nx-icon">🤖</span>
-                            <span class="nx-text">Integración de IA (Claude, Gemini) para optimización de flujos de trabajo.</span>
-                        </li>
-                        <li>
-                            <span class="nx-icon">💻</span>
-                            <span class="nx-text">Desarrollo Web Front-End (HTML, CSS, JS) y plataformas E-commerce.</span>
-                        </li>
-                    </ul>
-                    
-                    <!-- Botones de Acción (CTAs) -->
-                    <div class="nx-profile-actions">
-                        <button class="nx-btn nx-btn-fb">
-                            <span class="nx-btn-icon">f</span>
-                            <span class="nx-btn-text">Facebook</span>
-                            <span class="nx-btn-arrow">↗</span>
-                        </button>
-                        <button class="nx-btn nx-btn-ig">
-                            <span class="nx-btn-icon">📷</span>
-                            <span class="nx-btn-text">Instagram</span>
-                            <span class="nx-btn-arrow">↗</span>
-                        </button>
-                    </div>
+                  <div class="nx-profile-header">
+                    <h1>SANTIAGO TRUJILLO</h1>
+                    <p class="nx-tagline">IT Project Manager & Front-End Developer</p>
+                  </div>
+            
+                  <div class="nx-social-metrics">
+                    <div class="nx-metric-box"><span>🚀</span><small>7+ Años</small></div>
+                    <div class="nx-metric-box"><span>💼</span><small>B2B</small></div>
+                    <div class="nx-metric-box"><span>🔄</span><small>Agile</small></div>
+                    <div class="nx-metric-box"><span>💻</span><small>JS/TS</small></div>
+                  </div>
+            
+                  <ul class="nx-bio-list">
+                    <li><span>⚙️</span> Coordinación de equipos multidisciplinarios y metodologías ágiles (Scrum).</li>
+                    <li><span>🤖</span> Integración de IA (Claude, Gemini) para optimización de flujos de trabajo.</li>
+                    <li><span>💻</span> Desarrollo Web Front-End (HTML, CSS, JS) y plataformas E-commerce.</li>
+                  </ul>
+            
+                  <div class="nx-profile-actions">
+                    <button class="nx-btn nx-btn-primary">
+                      <span>LinkedIn</span> <span class="nx-arrow">↗</span>
+                    </button>
+                    <button class="nx-btn nx-btn-secondary">
+                      <span>GitHub</span> <span class="nx-arrow">↗</span>
+                    </button>
+                  </div>
                 </div>
+            
+              </div>
             </aside>
             
             <!-- Columna Derecha: Contenido Principal -->

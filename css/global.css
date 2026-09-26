@@ -1,1 +1,32 @@
-/* Purgado para Hard Reset */
+:root {
+  /* Orbes de Fondo */
+  --orb-orange: #F37261;
+  --orb-purple: #842CF2;
+  
+  /* Tarjeta Base */
+  --card-grad-start: #2F3D59;
+  --card-grad-end: #0B1326;
+  
+  /* Cajas Bento Grid */
+  --box-email: #143061;
+  --box-fb-start: #35A5EE; --box-fb-end: #1264D6;
+  --box-github-start: #25262F; --box-github-end: #0C0D16;
+  --box-figma-start: #313030; --box-figma-end: #121313;
+  --box-dev-start: #FBFBFC; --box-dev-end: #DBDBDB;
+  --avatar-placeholder: #D9D9D9;
+
+  /* Geometría y Espaciados Relativos */
+  --radius-box: 1rem;
+  --radius-avatar: 2rem;
+  --radius-card: 2.5rem;
+  --gap-bento: 1rem;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  background-color: #000; 
+  min-height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  padding: 2rem 1rem; 
+  overflow-x: hidden; 
+}

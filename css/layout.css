@@ -1,1 +1,43 @@
-/* Purgado para Hard Reset */
+/* Contenedor y Orbes */
+.nx-portfolio-wrapper { position: relative; width: 100%; max-width: 400px; /* Límite para Mobile */ }
+.nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
+.nx-orb-orange { width: 80vw; max-width: 300px; aspect-ratio: 1; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }
+.nx-orb-purple { width: 120vw; max-width: 500px; aspect-ratio: 1; background: var(--orb-purple); filter: blur(120px); bottom: -10%; left: -20%; }
+
+/* Cascarón Móvil */
+.nx-mobile-frame { width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+/* Avatar superpuesto */
+.nx-avatar-box { 
+  width: 55%; 
+  aspect-ratio: 1; 
+  background: var(--avatar-placeholder); 
+  border-radius: var(--radius-avatar); 
+  position: relative; 
+  z-index: 2; 
+  margin-bottom: -25%; /* Superposición relativa */
+}
+
+/* Tarjeta Base */
+.nx-base-card { 
+  width: 100%; 
+  background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
+  border-radius: var(--radius-card);
+  padding: 30% 1.5rem 1.5rem 1.5rem; /* Padding top compensa el margin-bottom del avatar */
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.nx-info-placeholder { width: 100%; height: 8rem; }
+
+/* Bento Grid */
+.nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
+.nx-box { border-radius: var(--radius-box); width: 100%; }
+
+/* Alturas proporcionales y Colores */
+.nx-box-email { background: var(--box-email); height: 4.5rem; }
+.nx-box-facebook { background: linear-gradient(180deg, var(--box-fb-start) 0%, var(--box-fb-end) 100%); height: 4.5rem; }
+.nx-box-github { background: linear-gradient(180deg, var(--box-github-start) 0%, var(--box-github-end) 100%); height: 6rem; grid-column: 1 / -1; }
+
+/* Fila asimétrica inferior (Proporción aproximada 60% / 40%) */
+.nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
+.nx-box-figma { background: linear-gradient(180deg, var(--box-figma-start) 0%, var(--box-figma-end) 100%); height: 12rem; }
+.nx-box-dev { background: linear-gradient(180deg, var(--box-dev-start) 0%, var(--box-dev-end) 100%); height: 100%; }

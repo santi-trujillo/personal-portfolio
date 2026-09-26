@@ -1,4 +1,36 @@
 /* ==========================================================================
    Layout Styles (Estructura, Grids, Flexbox para layouts macro)
    ========================================================================== */
+
+.nx-portfolio-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nx-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.nx-content-area {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 1024px) {
+  .nx-portfolio-wrapper {
+    grid-template-columns: 350px 1fr;
+    align-items: start;
+  }
+  
+  .nx-sidebar {
+    position: sticky;
+    top: 2rem;
+  }
+}
    

@@ -1,4 +1,66 @@
 /* ==========================================================================
    Components Styles (Tarjetas, Botones, Avatares, Bento Grid Items)
    ========================================================================== */
+
+/* Tarjeta de Perfil Base */
+.nx-profile-card {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-xl);
+  
+  /* padding-top incluye los 60px que el avatar ocupa internamente + 24px de respiro (var(--space-md)) */
+  padding: 84px var(--space-md) var(--space-md);
+  box-shadow: var(--glass-shadow);
+  
+  position: relative; /* Contexto de posicionamiento para la superposición del avatar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  /* Margen vital arriba para que la parte del avatar que "sale" de la caja no se corte ni tape otro contenido */
+  margin-top: 60px; 
+}
+
+/* Caja de Avatar (El Rompecabezas Visual / Cutout) */
+.nx-avatar-box {
+  width: 120px;
+  height: 120px;
+  background-color: var(--color-accent-yellow);
+  border-radius: var(--radius-lg);
+  
+  /* Superposición rompiendo el borde superior */
+  position: absolute;
+  top: -60px; /* Mitad de su altura exacta para el efecto de recorte a la mitad */
+  left: 50%;
+  transform: translateX(-50%); /* Centrado perfecto relativo a la tarjeta padre */
+  
+  /* Despegar de la tarjeta base para dar volumen */
+  box-shadow: 0 12px 32px rgba(245, 166, 35, 0.25);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Información del Perfil */
+.nx-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.nx-profile-info h1 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.nx-profile-info .nx-handle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
    

@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Design Tokens & Variables Maestras
+   ========================================================================== */
+:root {
+  /* 1. Paleta de Colores */
+  --color-bg-dark: #0a0a0c;        /* Fondo profundo */
+  --color-bg-plum: #1c102a;        /* Ciruela / Púrpura base */
+  --color-accent-yellow: #f5a623;  /* Amarillo cálido / Mostaza para acentos (ej. avatar) */
+  --color-accent-blue: #007aff;    /* Azul eléctrico para botones y CTAs */
+  --color-accent-orange: #f26f22;  /* Soporte cálido */
+  
+  /* Gradientes */
+  --gradient-background: linear-gradient(135deg, var(--color-bg-plum) 0%, var(--color-bg-dark) 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+  /* 2. Tipografía & Textos */
+  --font-family-primary: 'Outfit', system-ui, -apple-system, sans-serif;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+
+  /* 3. Superficies (Glassmorphism) */
+  --glass-bg: rgba(255, 255, 255, 0.03); /* Fondo translúcido muy sutil */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+  /* 4. Geometría (Radios de Borde Altos) */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* 5. Espaciado Modular (Sistema de 8px) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+}
+
+/* ==========================================================================
+   Reset Universal & Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background: var(--gradient-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Evitar scroll horizontal indeseado */
+  overflow-x: hidden; 
+}
+
+/* Reset de Tipografía Base */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Medios y multimedia */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Elementos de formulario/interacción */
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}

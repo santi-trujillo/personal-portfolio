@@ -179,4 +179,78 @@
   font-size: 0.8rem;
   opacity: 0.7;
 }
+
+/* ==========================================================================
+   Timeline Component (B2B Corporativo)
+   ========================================================================== */
+.nx-section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.nx-section-header h2 {
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+}
+
+.nx-timeline {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-left: var(--space-xs); /* Desplazamiento para no pegar la línea al borde de la pantalla en móvil */
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.nx-timeline-item {
+  position: relative;
+}
+
+/* Punto indicador circular brillante */
+.nx-timeline-dot {
+  position: absolute;
+  /* (padding-left del contenedor: 24px) - (mitad del width: 6px) + (mitad del borde: 1px) = 29px negativo */
+  left: calc(var(--space-md) * -1 - 5px);
+  top: 6px; /* Alinear ligeramente hacia abajo relativo a h3 */
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.5); /* Resplandor */
+}
+
+/* Tarjeta de contenido del hito */
+.nx-timeline-content {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: transform 0.3s ease;
+}
+
+.nx-timeline-content:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.05); /* Sutil aclarado al hover */
+}
+
+.nx-timeline-content h3 {
+  font-size: 1.2rem;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.nx-timeline-meta {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-accent-yellow); /* Destaque para empresas/fechas */
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.nx-timeline-content p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
    

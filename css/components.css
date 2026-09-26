@@ -4,44 +4,40 @@
 
 /* Tarjeta de Perfil Base */
 .nx-profile-card {
-  background: var(--glass-bg);
-  border: var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(47, 61, 89, 0.4) 0%, rgba(11, 19, 38, 0.7) 100%);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  position: relative;
+  margin-top: 100px; 
+  padding-top: 100px;
+  padding-right: var(--space-md);
+  padding-left: var(--space-md);
+  padding-bottom: var(--space-md);
+  /* El recorte dinámico perfecto */
+  -webkit-mask-image: radial-gradient(circle at 50% 0px, transparent 95px, black 96px);
+  mask-image: radial-gradient(circle at 50% 0px, transparent 95px, black 96px);
   
-  /* padding-top incluye los 60px que el avatar ocupa internamente + 24px de respiro (var(--space-md)) */
-  padding: 84px var(--space-md) var(--space-md);
-  box-shadow: var(--glass-shadow);
-  
-  position: relative; /* Contexto de posicionamiento para la superposición del avatar */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  
-  /* Margen vital arriba para que la parte del avatar que "sale" de la caja no se corte ni tape otro contenido */
-  margin-top: 60px; 
 }
 
 /* Caja de Avatar (El Rompecabezas Visual / Cutout) */
 .nx-avatar-box {
-  width: 120px;
-  height: 120px;
-  background-color: var(--color-accent-yellow);
-  border-radius: var(--radius-lg);
-  
-  /* Superposición rompiendo el borde superior */
   position: absolute;
-  top: -60px; /* Mitad de su altura exacta para el efecto de recorte a la mitad */
+  top: -80px; /* Exactamente la mitad para encajar en el mask */
   left: 50%;
-  transform: translateX(-50%); /* Centrado perfecto relativo a la tarjeta padre */
-  
-  /* Despegar de la tarjeta base para dar volumen */
-  box-shadow: 0 12px 32px rgba(245, 166, 35, 0.25);
-  
-  display: flex;
-  justify-content: center;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 36px;
+  background: var(--color-accent-yellow);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  display: flex; 
+  justify-content: center; 
   align-items: center;
   overflow: hidden;
 }
@@ -144,10 +140,12 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-sm);
-  border-radius: var(--radius-md);
+  border-radius: 15px; /* Radio de borde de los botones B2B: 15px */
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.3);
+  color: #fff;
 }
 
 .nx-btn:hover {
@@ -155,15 +153,12 @@
   filter: brightness(1.1);
 }
 
-.nx-btn-primary {
-  background: var(--color-accent-blue);
-  color: #fff;
+.nx-btn-fb {
+  background: linear-gradient(180deg, #35A5EE 0%, #1264D6 100%);
 }
 
-.nx-btn-secondary {
-  background: rgba(255, 255, 255, 0.05); /* Fondo oscuro profundo */
-  border: var(--glass-border);
-  color: #fff;
+.nx-btn-ig {
+  background: radial-gradient(ellipse at top left, #3C93E3, #FFDA55, #F03D63, #B72DC0);
 }
 
 .nx-btn-icon {

@@ -63,4 +63,120 @@
   font-size: 0.95rem;
   font-weight: 500;
 }
+
+/* ==========================================================================
+   Métricas Sociales
+   ========================================================================== */
+.nx-social-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: var(--space-lg);
+}
+
+.nx-metric-box {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.nx-metric-box .nx-icon {
+  font-size: 1.2rem;
+}
+
+.nx-metric-box .nx-num {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   Bio List
+   ========================================================================== */
+.nx-bio-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.nx-bio-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  text-align: left;
+}
+
+.nx-bio-list .nx-icon {
+  font-size: 1.1rem;
+}
+
+.nx-bio-list .nx-text {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Profile Actions (CTAs)
+   ========================================================================== */
+.nx-profile-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.nx-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.nx-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.nx-btn-primary {
+  background: var(--color-accent-blue);
+  color: #fff;
+}
+
+.nx-btn-secondary {
+  background: rgba(255, 255, 255, 0.05); /* Fondo oscuro profundo */
+  border: var(--glass-border);
+  color: #fff;
+}
+
+.nx-btn-icon {
+  font-size: 1.2rem;
+}
+
+.nx-btn-text {
+  flex: 1;
+  text-align: center;
+}
+
+.nx-btn-arrow {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
    

@@ -183,80 +183,73 @@
 }
 
 /* Vista Dev - Stack Interactivo Vertical */
-.nx-dev-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  width: 100%;
-}
+.nx-dev-stack { display: flex; flex-direction: column; gap: 2.5rem; width: 100%; }
 
-/* Tarjeta de Proyecto Base */
 .nx-project-card {
-  position: relative;
-  width: 100%;
-  height: 24rem; /* Altura generosa para lucir el pantallazo */
-  border-radius: var(--radius-card);
-  overflow: hidden; /* Clave para esconder el panel inferior */
+  position: relative; width: 100%; height: 24rem; 
+  border-radius: var(--radius-card); overflow: hidden; 
   background: #12141D;
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 16px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Placeholder de la Imagen */
 .nx-project-image-placeholder {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* Panel de Detalles (Cristal Oculto) */
+/* Panel de Detalles Expansible (El Botón Ancho) */
 .nx-project-details-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(11, 19, 38, 0.85); /* Cristal ultra oscuro */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 4rem 1.5rem 1.5rem 1.5rem; /* Padding top alto para no pisar el botón */
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(11, 19, 38, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  display: flex; flex-direction: column;
   
-  /* Escondido debajo del borde inferior */
-  transform: translateY(100%);
+  /* Asoma exactamente 6.5rem en su estado de reposo */
+  transform: translateY(calc(100% - 6.5rem));
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 5;
+  z-index: 5; cursor: pointer;
 }
 
-/* ESTADO ABIERTO: Interacción */
+/* Micro-interacción que invita al click */
+.nx-project-card:not(.nx-open) .nx-project-details-overlay:hover {
+  transform: translateY(calc(100% - 7rem));
+  background: rgba(11, 19, 38, 0.95);
+}
+
+.nx-drag-indicator {
+  width: 2.5rem; height: 4px; border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0.8rem auto 1rem auto;
+}
+
+.nx-project-peek-header { padding: 0 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+
+.nx-wireframe-title { height: 1.5rem; background: rgba(255, 255, 255, 0.15); border-radius: 0.4rem; }
+
+/* Efecto de difuminado hacia abajo */
+.nx-wireframe-text-faded {
+  display: flex; flex-direction: column; gap: 0.6rem;
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  transition: mask-image 0.3s ease;
+}
+
+.nx-project-details-body {
+  padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+
+/* ESTADO ABIERTO */
 .nx-project-card.nx-open .nx-project-details-overlay {
-  transform: translateY(0); /* Sube el panel de cristal */
+  transform: translateY(0); cursor: default;
 }
 .nx-project-card.nx-open .nx-project-image-placeholder {
-  transform: scale(1.05); /* Efecto Parallax en la imagen */
-  filter: brightness(0.4); /* Oscurece la imagen de fondo */
+  transform: scale(1.05); filter: brightness(0.4);
 }
-
-/* Botón Flotante Circular (Trigger) */
-.nx-project-toggle-btn {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background: var(--orb-orange);
-  /* Un borde grueso del color del fondo de la app crea un efecto de recorte */
-  border: 6px solid #000; 
-  z-index: 10;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+.nx-project-card.nx-open .nx-wireframe-text-faded {
+  -webkit-mask-image: none; mask-image: none; /* Quita el difuminado al abrir */
 }
-
-.nx-project-card.nx-open .nx-project-toggle-btn {
-  background: #FFFFFF;
-  transform: rotate(45deg); /* Gira el botón al abrir */
+.nx-project-card.nx-open .nx-project-details-body {
+  opacity: 1; transition-delay: 0.2s;
 }

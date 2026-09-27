@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Toggler de Tarjetas de Proyecto (Dev View)
-  const toggleBtns = document.querySelectorAll('.nx-project-toggle-btn');
+  // 2. Toggler de Tarjetas de Proyecto (Dev View - Bottom Sheet Peek)
+  const overlays = document.querySelectorAll('.nx-project-details-overlay');
   
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.nx-project-card');
+  overlays.forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      const card = overlay.closest('.nx-project-card');
+      // Solo permite alternar si hace click en el header asomado, 
+      // o cierra si está abierto y hacen click en el indicador de arrastre superior
       card.classList.toggle('nx-open');
     });
   });

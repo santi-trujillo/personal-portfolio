@@ -327,3 +327,45 @@
   padding-top: 1.5rem;
   transition-delay: 0.1s;
 }
+
+/* Vista Diseño - Galería Asimétrica (Masonry-lite) */
+.nx-design-masonry {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-bento);
+  width: 100%;
+}
+
+.nx-design-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-bento);
+}
+
+/* Tarjeta Base de Diseño (Cristal Oscuro) */
+.nx-design-card {
+  width: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%), #12141D;
+  border-radius: var(--radius-box);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Proporciones Alternas */
+.nx-card-tall {
+  height: 16rem; /* Formato alargado vertical */
+}
+
+.nx-card-square {
+  aspect-ratio: 1; /* Cuadrado perfecto matemático */
+}
+
+/* Interacción de Elevación (Hover) */
+.nx-design-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5);
+  z-index: 2; /* Asegura que la sombra pase por encima de las otras tarjetas */
+}

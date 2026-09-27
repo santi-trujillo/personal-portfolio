@@ -43,25 +43,39 @@
 
 .nx-info-placeholder { width: 100%; height: 8rem; }
 
-/* Bento Grid */
+/* Bento Grid y Sistema de Cajas */
 .nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
 
-/* ILUMINACIÓN INTERNA Y VOLUMEN PARA LAS CAJAS */
 .nx-box { 
   border-radius: var(--radius-box); 
   width: 100%; 
-  /* Reflejo superior blanco sutil y sombra de profundidad negra */
+  /* Iluminación 3D y volumen */
   box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.nx-box-email { background: var(--box-email); height: 4.5rem; }
-.nx-box-facebook { background: linear-gradient(180deg, var(--box-fb-start) 0%, var(--box-fb-end) 100%); height: 4.5rem; }
-.nx-box-github { background: linear-gradient(180deg, var(--box-github-start) 0%, var(--box-github-end) 100%); height: 6rem; grid-column: 1 / -1; }
+/* Modificador de brillo para cajas claras (Notbook) */
+.nx-box-light {
+  box-shadow: inset 0 2px 4px #FFFFFF, inset 0 -3px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
+/* Fila 1: WA y Correo */
+.nx-box-wa { background: linear-gradient(135deg, var(--box-wa-start) 0%, var(--box-wa-end) 100%); height: 5rem; }
+.nx-box-correo { background: var(--box-correo); height: 5rem; }
+
+/* Fila 2: GitHub */
+.nx-box-github { background: linear-gradient(180deg, var(--box-github-start) 0%, var(--box-github-end) 100%); height: 6.5rem; grid-column: 1 / -1; }
+
+/* Fila 3: Asimétrica (Filiustec 60% / Notbook 40%) */
 .nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
-.nx-box-figma { background: linear-gradient(180deg, var(--box-figma-start) 0%, var(--box-figma-end) 100%); height: 12rem; }
-.nx-box-dev { background: linear-gradient(180deg, var(--box-dev-start) 0%, var(--box-dev-end) 100%); height: 100%; }
+.nx-box-filiustec { background: linear-gradient(135deg, var(--box-filius-start) 0%, var(--box-filius-end) 100%); height: 10rem; }
+.nx-box-notbook { background: linear-gradient(180deg, var(--box-notbook-start) 0%, var(--box-notbook-end) 100%); height: 10rem; border: 1px solid rgba(0,0,0,0.1); box-shadow: inset 0 2px 4px #FFFFFF, inset 0 -3px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); }
+
+/* Fila 4: Redes Sociales Finales */
+.nx-bento-row-social { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-bento); }
+.nx-box-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); height: 5rem; }
+.nx-box-fb { background: linear-gradient(180deg, var(--box-fb-start) 0%, var(--box-fb-end) 100%); height: 5rem; }
 
 /* Navegación de Vistas (Menú Central - AHORA INTERNO) */
 .nx-nav-menu {

@@ -25,4 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.toggle('nx-open');
     });
   });
+
+  // 3. Toggler de Acordeones PM
+  const pmCards = document.querySelectorAll('.nx-pm-card');
+  
+  pmCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Opcional: Si quieres que al abrir uno se cierren los demás, descomenta esto:
+      // pmCards.forEach(c => { if(c !== card) c.classList.remove('nx-open'); });
+      
+      card.classList.toggle('nx-open');
+    });
+  });
 });

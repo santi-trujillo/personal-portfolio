@@ -21,10 +21,10 @@
   --radius-card: 2.5rem;
   --gap-bento: 1rem;
 
-  /* Control Geométrico Exacto del Cutout */
+  /* Control Geométrico Exacto del Cutout (Squircle) */
   --avatar-size: 160px; 
-  --cutout-gap: 8px; /* El respiro entre foto y cristal */
-  --cutout-radius: calc((var(--avatar-size) / 2) + var(--cutout-gap));
+  --cutout-size: 176px; /* 160px del avatar + 16px de margen total (8px por lado) */
+  --cutout-offset: -88px; /* La mitad exacta para centrarlo en el borde superior */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

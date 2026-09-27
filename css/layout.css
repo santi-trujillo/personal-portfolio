@@ -1,40 +1,38 @@
 /* Contenedor y Orbes */
-.nx-portfolio-wrapper { position: relative; width: 100%; max-width: 400px; /* Límite para Mobile */ }
+.nx-portfolio-wrapper { position: relative; width: 100%; max-width: 400px; }
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
-.nx-orb-orange { width: 80vw; max-width: 300px; aspect-ratio: 1; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }
-.nx-orb-purple { width: 120vw; max-width: 500px; aspect-ratio: 1; background: var(--orb-purple); filter: blur(120px); bottom: -10%; left: -20%; }
+.nx-orb-orange { width: 302px; height: 302px; background: var(--orb-orange); filter: blur(125px); top: -5%; right: -10%; }
+.nx-orb-purple { width: 524px; height: 524px; background: var(--orb-purple); filter: blur(150px); bottom: -10%; left: -20%; }
 
 /* Cascarón Móvil */
 .nx-mobile-frame { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
-/* Avatar superpuesto */
+/* Avatar superpuesto (Matemática Estricta) */
 .nx-avatar-box { 
-  width: 55%; 
-  aspect-ratio: 1; 
+  width: var(--avatar-size); 
+  height: var(--avatar-size); 
   background: var(--avatar-placeholder); 
   border-radius: var(--radius-avatar); 
   position: relative; 
   z-index: 2; 
-  margin-bottom: -25%; /* Superposición relativa */
+  /* Lo desplaza hacia abajo exactamente la mitad de su altura */
+  margin-bottom: calc(var(--avatar-size) / -2); 
 }
 
-/* Tarjeta Base Refinada */
+/* Tarjeta Base */
 .nx-base-card { 
   width: 100%; 
-  /* Gradiente exacto extraído de Figma */
   background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
   border-radius: var(--radius-card);
-  padding: 30% 1.5rem 1.5rem 1.5rem;
+  /* Padding top empuja el contenido bajo el recorte */
+  padding: calc(var(--cutout-radius) + 1.5rem) 1.5rem 1.5rem 1.5rem; 
   display: flex; flex-direction: column; gap: 1.5rem;
   
-  /* 
-    El 'Cutout' Fluido:
-    Corta un círculo exacto en la parte superior central (50% 0).
-    Como el avatar mide 55% de ancho (radio 27.5%), usamos 30% para dejar un margen perfecto.
-  */
-  -webkit-mask-image: radial-gradient(circle at 50% 0, transparent 30%, black 30.5%);
-  mask-image: radial-gradient(circle at 50% 0, transparent 30%, black 30.5%);
+  /* El 'Cutout' Exacto */
+  -webkit-mask-image: radial-gradient(circle at 50% 0, transparent var(--cutout-radius), black calc(var(--cutout-radius) + 1px));
+  mask-image: radial-gradient(circle at 50% 0, transparent var(--cutout-radius), black calc(var(--cutout-radius) + 1px));
 }
+
 .nx-info-placeholder { width: 100%; height: 8rem; }
 
 /* Bento Grid */
@@ -46,7 +44,7 @@
 .nx-box-facebook { background: linear-gradient(180deg, var(--box-fb-start) 0%, var(--box-fb-end) 100%); height: 4.5rem; }
 .nx-box-github { background: linear-gradient(180deg, var(--box-github-start) 0%, var(--box-github-end) 100%); height: 6rem; grid-column: 1 / -1; }
 
-/* Fila asimétrica inferior (Proporción aproximada 60% / 40%) */
+/* Fila asimétrica inferior */
 .nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
 .nx-box-figma { background: linear-gradient(180deg, var(--box-figma-start) 0%, var(--box-figma-end) 100%); height: 12rem; }
 .nx-box-dev { background: linear-gradient(180deg, var(--box-dev-start) 0%, var(--box-dev-end) 100%); height: 100%; }

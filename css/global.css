@@ -7,13 +7,37 @@
   --card-grad-start: #2F3D59;
   --card-grad-end: #0B1326;
   
-  /* Cajas Bento Grid - Colorimetría Exacta de Marcas */
-  --box-wa-start: #25D366; --box-wa-end: #128C7E;
-  --box-correo: #143061;
-  --box-github-start: #25262F; --box-github-end: #0C0D16;
-  --box-filius-start: #1A1F2B; --box-filius-end: #0D1117; /* Grafito Premium */
-  --box-notbook-start: #FFFFFF; --box-notbook-end: #E2E2E2; /* Tiza a Gris Perla */
-  --box-fb-start: #35A5EE; --box-fb-end: #1264D6;
+  /* Cajas Bento Grid - Base de Marca + Orbes Secundarios */
+  
+  /* WhatsApp */
+  --base-wa: #128C7E; /* Verde corporativo oscuro */
+  --orb-wa: rgba(37, 211, 102, 0.9); /* Luz verde brillante */
+
+  /* Correo */
+  --base-correo: #143061; /* Azul profundo */
+  --orb-correo: rgba(53, 165, 238, 0.7); /* Luz celeste */
+
+  /* GitHub */
+  --base-github: #0D1117; /* Negro/Grafito */
+  --orb-github: rgba(255, 255, 255, 0.15); /* Brillo blanco tenue */
+
+  /* Filiustec */
+  --base-filius: #1A1F2B; /* Azul noche premium */
+  --orb-filius-1: rgba(132, 44, 242, 0.6); /* Luz púrpura */
+  --orb-filius-2: rgba(37, 117, 252, 0.5); /* Luz azul rey */
+
+  /* Notbook */
+  --base-notbook: #EAEAEC; /* Gris perla */
+  --orb-notbook: rgba(255, 255, 255, 0.9); /* Brillo blanco puro */
+
+  /* Instagram */
+  --base-ig: #E1306C; /* Rosa magenta oficial */
+  --orb-ig-1: rgba(253, 244, 151, 0.9); /* Luz amarilla */
+  --orb-ig-2: rgba(253, 89, 73, 0.9); /* Luz naranja */
+
+  /* Facebook */
+  --base-fb: #1877F2; /* Azul oficial */
+  --orb-fb: rgba(66, 183, 255, 0.8); /* Luz cyan */
   --avatar-placeholder: #D9D9D9;
 
   /* Geometría y Espaciados */

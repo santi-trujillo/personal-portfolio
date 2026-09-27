@@ -63,21 +63,21 @@
 .nx-box-figma { background: linear-gradient(180deg, var(--box-figma-start) 0%, var(--box-figma-end) 100%); height: 12rem; }
 .nx-box-dev { background: linear-gradient(180deg, var(--box-dev-start) 0%, var(--box-dev-end) 100%); height: 100%; }
 
-/* Navegación de Vistas (Menú Central) */
+/* Navegación de Vistas (Menú Central - AHORA INTERNO) */
 .nx-nav-menu {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2.5rem; /* ~40px según Figma */
   width: 100%;
-  margin-top: -0.5rem; /* Ajuste de acercamiento a la tarjeta base */
-  margin-bottom: 1.5rem; /* Separación con el Bento Grid */
+  margin-top: auto; /* Empuja el menú hacia el fondo de la tarjeta */
+  padding-top: 1rem;
 }
 
 .nx-nav-item {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.5); /* Gris tenue apagado */
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
@@ -90,13 +90,11 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Estado Activo (Botón Seleccionado) */
 .nx-nav-item.nx-active {
   color: #ffffff;
   font-weight: 600;
 }
 
-/* Subrayado indicador del estado activo */
 .nx-nav-item.nx-active::after {
   content: "";
   position: absolute;
@@ -105,6 +103,6 @@
   transform: translateX(-50%);
   width: 80%;
   height: 2px;
-  background: var(--orb-orange); /* Usamos el naranja de los orbes para acento */
+  background: var(--orb-orange);
   border-radius: 2px;
 }

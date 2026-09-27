@@ -106,3 +106,29 @@
   background: var(--orb-orange);
   border-radius: 2px;
 }
+
+/* Sistema de Vistas SPA */
+.nx-views-container { width: 100%; position: relative; }
+
+.nx-view { 
+  display: none; 
+  animation: fadeIn 0.4s ease-out forwards; 
+}
+
+.nx-view.nx-active-view { 
+  display: block; 
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cajas Wireframe Temporales (Para las vistas vacías) */
+.nx-wireframe-box {
+  width: 100%;
+  border-radius: var(--radius-box);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}

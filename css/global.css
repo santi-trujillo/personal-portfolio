@@ -26,9 +26,9 @@
   --orb-filius-1: rgba(132, 44, 242, 0.6); /* Luz púrpura */
   --orb-filius-2: rgba(37, 117, 252, 0.5); /* Luz azul rey */
 
-  /* Notbook */
-  --base-notbook: #EAEAEC; /* Gris perla */
-  --orb-notbook: rgba(255, 255, 255, 0.9); /* Brillo blanco puro */
+  /* Notbook (Dark Mode Style) */
+  --base-notbook: #1E2028; /* Grafito oscuro mate */
+  --orb-notbook: rgba(255, 255, 255, 0.12); /* Luz blanca muy sutil */
 
   /* Instagram */
   --base-ig: #E1306C; /* Rosa magenta oficial */

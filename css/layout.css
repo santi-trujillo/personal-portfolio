@@ -41,7 +41,7 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.nx-info-placeholder { width: 100%; height: 8rem; }
+
 
 /* Bento Grid y Sistema de Cajas */
 .nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
@@ -70,7 +70,7 @@
 /* Fila 3: Asimétrica */
 .nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
 .nx-box-filiustec { background: radial-gradient(circle at 100% 100%, var(--orb-filius-1) 0%, transparent 65%), radial-gradient(circle at 0% 0%, var(--orb-filius-2) 0%, transparent 65%), var(--base-filius); height: 10rem; }
-.nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 10rem; border: 1px solid rgba(0,0,0,0.1); box-shadow: inset 0 2px 4px #FFFFFF, inset 0 -3px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); }
+.nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 10rem; }
 
 /* Fila 4: Redes Sociales Finales */
 .nx-bento-row-social { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-bento); }
@@ -145,4 +145,39 @@
   border-radius: var(--radius-box);
   border: 2px dashed rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.03);
+}
+
+/* Sub-estructuras de la Tarjeta Base (Wireframes) */
+.nx-wireframe-header { 
+  width: 60%; 
+  height: 2.5rem; 
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 0.5rem; 
+  margin: 0 auto 1.5rem auto; 
+}
+
+.nx-wireframe-stats { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 0.8rem; 
+  margin-bottom: 1.5rem; 
+}
+
+.nx-wireframe-stat-box { 
+  height: 3.5rem; 
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 0.5rem; 
+}
+
+.nx-wireframe-bio { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.8rem; 
+  margin-bottom: auto; /* Empuja el menú hacia abajo */
+}
+
+.nx-wireframe-bio-line { 
+  height: 1.2rem; 
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 0.3rem; 
 }

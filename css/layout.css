@@ -7,6 +7,14 @@
 /* Cascarón Móvil */
 .nx-mobile-frame { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
+/* Envoltura base (Mobile) para centrar el avatar con la tarjeta */
+.nx-sidebar-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Avatar */
 .nx-avatar-box { 
   width: var(--avatar-size); 
@@ -382,17 +390,20 @@
     position: sticky; 
     top: 4rem; 
     z-index: 10;
-    /* PARCHE: Obliga al avatar a centrarse para coincidir con el cutout de la tarjeta */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* Restaura el ancho completo interno para que la tarjeta no colapse */
+    align-items: stretch; 
+  }
+
+  /* Centrado forzado solo para el avatar dentro del sidebar Desktop */
+  .nx-sidebar-wrapper .nx-avatar-box {
+    margin-left: auto;
+    margin-right: auto;
   }
   
   /* 4. Area de Vistas Derecha */
   .nx-views-container { 
     flex: 1; 
     min-width: 0; 
-    /* PARCHE: Límite de expansión para evitar que las cajas se estiren en exceso en monitores grandes */
     max-width: 800px; 
   }
   
@@ -408,7 +419,7 @@
     flex-direction: column; 
     align-items: stretch; 
     gap: 0.5rem; 
-    margin-top: 2rem; 
+    margin-top: auto; /* Empuja al fondo */
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }

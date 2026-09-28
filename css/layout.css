@@ -1,28 +1,40 @@
-/* Contenedor y Orbes */
+/* ==================================================
+   LAYOUT MAESTRO - SANTIAGO TRUJILLO PORTAFOLIO
+   ================================================== */
+
 /* 1. Límite para Móvil y Tablets (Cura el estiramiento gigante) */
 .nx-portfolio-wrapper { 
   position: relative; 
   width: 100%; 
-  max-width: 480px; /* Límite vital para iPad Mini y Surface */
+  max-width: 480px; 
   margin: 0 auto; 
-  transition: max-width 0.3s ease;
+  transition: max-width 0.3s ease, padding 0.3s ease;
 }
+
+/* Orbes */
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
 .nx-orb-orange { width: 302px; height: 302px; background: var(--orb-orange); filter: blur(125px); top: -5%; right: -10%; }
 .nx-orb-purple { width: 524px; height: 524px; background: var(--orb-purple); filter: blur(150px); bottom: -10%; left: -20%; }
 
-/* Cascarón Móvil */
-.nx-mobile-frame { width: 100%; display: flex; flex-direction: column; align-items: center; }
+/* Cascarón Móvil (Columna con separación) */
+.nx-mobile-frame { 
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 2rem; 
+}
 
-/* 2. Envoltura base para centrar en móviles */
+/* Envoltura base (Mobile) para agrupar avatar y tarjeta */
 .nx-sidebar-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
-/* 3. Recuperación del Avatar (Fuerza el traslape en el cutout) */
+/* Recuperación del Avatar (Fuerza el centrado y traslape) */
 .nx-avatar-box { 
   width: var(--avatar-size); 
   height: var(--avatar-size); 
@@ -30,8 +42,9 @@
   border-radius: var(--radius-avatar); 
   position: relative; 
   z-index: 10; 
-  margin-bottom: calc(var(--avatar-size) / -2); /* Retorna a -80px */
+  margin-bottom: -80px; /* Fijo para anclaje exacto */
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+  align-self: center; /* Obliga al centrado incluso si el padre se estira */
 }
 
 /* Tarjeta Base */
@@ -41,344 +54,134 @@
   width: 100%; 
   background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
   border-radius: var(--radius-card);
-  padding: calc(88px + 1.5rem) 1.5rem 1.5rem 1.5rem; 
-  display: flex; flex-direction: column; gap: 1.5rem;
+  padding: 104px 1.5rem 1.5rem 1.5rem; /* 88px offset + 16px padding */
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.5rem;
   
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='176'%3E%3Crect width='176' height='176' rx='40' fill='black'/%3E%3C/svg%3E"), linear-gradient(black, black);
-  -webkit-mask-position: 50% var(--cutout-offset), 0 0;
+  -webkit-mask-position: 50% -88px, 0 0;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   
-  margin-bottom: 2rem;
-  
-  /* ILUMINACIÓN INTERNA Y BORDE TRANSLÚCIDO */
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.08), inset 0 -4px 10px rgba(0, 0, 0, 0.5), 0 16px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-
-
-/* Bento Grid y Sistema de Cajas */
-.nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
-
-.nx-box { 
-  border-radius: var(--radius-box); 
-  width: 100%; 
-  /* Iluminación 3D y volumen */
-  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Wireframes de Biografía */
+.nx-wireframe-header { 
+  width: 60%; height: 2.5rem; background: rgba(255, 255, 255, 0.05); 
+  border-radius: 0.5rem; margin: 0 auto 2rem auto; 
 }
+.nx-wireframe-bio { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: auto; }
+.nx-wireframe-bio-line { height: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.3rem; }
 
-/* Modificador de brillo para cajas claras (Notbook) */
-.nx-box-light {
-  box-shadow: inset 0 2px 4px #FFFFFF, inset 0 -3px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Fila 1: WA y Correo */
-.nx-box-wa { background: radial-gradient(circle at 100% 0%, var(--orb-wa) 0%, transparent 65%), var(--base-wa); height: 5rem; }
-.nx-box-correo { background: radial-gradient(circle at 0% 100%, var(--orb-correo) 0%, transparent 70%), var(--base-correo); height: 5rem; }
-
-/* Fila 2: GitHub */
-.nx-box-github { background: radial-gradient(circle at 50% -20%, var(--orb-github) 0%, transparent 60%), var(--base-github); height: 6.5rem; grid-column: 1 / -1; }
-
-/* Fila 3: Asimétrica */
-.nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
-.nx-box-filiustec { background: radial-gradient(circle at 100% 100%, var(--orb-filius-1) 0%, transparent 65%), radial-gradient(circle at 0% 0%, var(--orb-filius-2) 0%, transparent 65%), var(--base-filius); height: 10rem; }
-.nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 10rem; }
-
-/* Fila 4: Redes Sociales Finales */
-.nx-bento-row-social { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-bento); }
-.nx-box-ig { background: radial-gradient(circle at 0% 100%, var(--orb-ig-1) 0%, transparent 60%), radial-gradient(circle at 100% 0%, var(--orb-ig-2) 0%, transparent 60%), var(--base-ig); height: 5rem; }
-.nx-box-fb { background: radial-gradient(circle at 50% 120%, var(--orb-fb) 0%, transparent 70%), var(--base-fb); height: 5rem; }
-
-/* Navegación de Vistas (Menú Central - AHORA INTERNO) */
+/* Navegación de Vistas (Menú Móvil) */
 .nx-nav-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem; /* ~40px según Figma */
-  width: 100%;
-  margin-top: auto; /* Empuja el menú hacia el fondo de la tarjeta */
-  padding-top: 1rem;
+  display: flex; justify-content: center; align-items: center; gap: 2.5rem; 
+  width: 100%; margin-top: auto; padding-top: 1rem;
 }
-
 .nx-nav-item {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.85rem;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-  padding-bottom: 0.4rem;
-  position: relative;
-  transition: all 0.3s ease;
+  background: transparent; border: none; color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem; font-family: 'Poppins', sans-serif; cursor: pointer;
+  padding-bottom: 0.4rem; position: relative; transition: all 0.3s ease;
 }
-
-.nx-nav-item:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.nx-nav-item.nx-active {
-  color: #ffffff;
-  font-weight: 600;
-}
-
+.nx-nav-item:hover { color: rgba(255, 255, 255, 0.8); }
+.nx-nav-item.nx-active { color: #ffffff; font-weight: 600; }
 .nx-nav-item.nx-active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 2px;
-  background: var(--orb-orange);
-  border-radius: 2px;
+  content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 80%; height: 2px; background: var(--orb-orange); border-radius: 2px;
 }
 
 /* Sistema de Vistas SPA */
 .nx-views-container { width: 100%; position: relative; }
+.nx-view { display: none; animation: fadeIn 0.4s ease-out forwards; }
+.nx-view.nx-active-view { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-.nx-view { 
-  display: none; 
-  animation: fadeIn 0.4s ease-out forwards; 
+/* =========================================
+   SECCIONES DE CONTENIDO
+   ========================================= */
+
+/* Vista 1: Bento Grid */
+.nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
+.nx-box { 
+  border-radius: var(--radius-box); width: 100%; 
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
+.nx-box-wa { background: radial-gradient(circle at 100% 0%, var(--orb-wa) 0%, transparent 65%), var(--base-wa); height: 5rem; }
+.nx-box-correo { background: radial-gradient(circle at 0% 100%, var(--orb-correo) 0%, transparent 70%), var(--base-correo); height: 5rem; }
+.nx-box-github { background: radial-gradient(circle at 50% -20%, var(--orb-github) 0%, transparent 60%), var(--base-github); height: 6.5rem; grid-column: 1 / -1; }
+.nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
+.nx-box-filiustec { background: radial-gradient(circle at 100% 100%, var(--orb-filius-1) 0%, transparent 65%), radial-gradient(circle at 0% 0%, var(--orb-filius-2) 0%, transparent 65%), var(--base-filius); height: 10rem; }
+.nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 10rem; }
+.nx-bento-row-social { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-bento); }
+.nx-box-ig { background: radial-gradient(circle at 0% 100%, var(--orb-ig-1) 0%, transparent 60%), radial-gradient(circle at 100% 0%, var(--orb-ig-2) 0%, transparent 60%), var(--base-ig); height: 5rem; }
+.nx-box-fb { background: radial-gradient(circle at 50% 120%, var(--orb-fb) 0%, transparent 70%), var(--base-fb); height: 5rem; }
 
-.nx-view.nx-active-view { 
-  display: block; 
-}
-
-/* Animación de entrada suave */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Cajas Wireframe Temporales (Para las vistas vacías) */
-.nx-wireframe-box {
-  width: 100%;
-  border-radius: var(--radius-box);
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-/* Sub-estructuras de la Tarjeta Base (Wireframes) */
-.nx-wireframe-header { 
-  width: 60%; 
-  height: 2.5rem; 
-  background: rgba(255, 255, 255, 0.05); 
-  border-radius: 0.5rem; 
-  margin: 0 auto 2rem auto; /* Margen inferior ampliado a 2rem para separar de la bio */
-}
-
-.nx-wireframe-bio { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.8rem; 
-  margin-bottom: auto; /* Empuja el menú hacia abajo */
-}
-
-.nx-wireframe-bio-line { 
-  height: 1.2rem; 
-  background: rgba(255, 255, 255, 0.05); 
-  border-radius: 0.3rem; 
-}
-
-/* Vista Dev - Stack Interactivo Vertical */
+/* Vista 2: Dev Stack */
 .nx-dev-stack { display: flex; flex-direction: column; gap: 2.5rem; width: 100%; }
-
 .nx-project-card {
-  position: relative; width: 100%; height: 24rem; 
-  border-radius: var(--radius-card); overflow: hidden; 
-  background: #12141D;
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 16px 32px rgba(0, 0, 0, 0.4);
+  position: relative; width: 100%; height: 24rem; border-radius: var(--radius-card); overflow: hidden; 
+  background: #12141D; box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 16px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.nx-project-image-placeholder {
-  width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-  transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-/* Panel de Detalles Expansible (El Botón Ancho) */
+.nx-project-image-placeholder { width: 100%; height: 100%; background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%); transition: transform 0.5s ease, filter 0.5s ease; }
 .nx-project-details-overlay {
   position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
   background: rgba(11, 19, 38, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  display: flex; flex-direction: column;
-  
-  /* Asoma exactamente 6.5rem en su estado de reposo */
-  transform: translateY(calc(100% - 6.5rem));
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 5; cursor: pointer;
+  display: flex; flex-direction: column; transform: translateY(calc(100% - 6.5rem));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 5; cursor: pointer;
 }
-
-/* Micro-interacción que invita al click */
-.nx-project-card:not(.nx-open) .nx-project-details-overlay:hover {
-  transform: translateY(calc(100% - 7rem));
-  background: rgba(11, 19, 38, 0.95);
-}
-
-.nx-drag-indicator {
-  width: 2.5rem; height: 4px; border-radius: 2px;
-  background: rgba(255, 255, 255, 0.3);
-  margin: 0.8rem auto 1rem auto;
-}
-
+.nx-project-card:not(.nx-open) .nx-project-details-overlay:hover { transform: translateY(calc(100% - 7rem)); background: rgba(11, 19, 38, 0.95); }
+.nx-drag-indicator { width: 2.5rem; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.3); margin: 0.8rem auto 1rem auto; }
 .nx-project-peek-header { padding: 0 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
-
 .nx-wireframe-title { height: 1.5rem; background: rgba(255, 255, 255, 0.15); border-radius: 0.4rem; }
+.nx-wireframe-text-faded { display: flex; flex-direction: column; gap: 0.6rem; -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%); mask-image: linear-gradient(to bottom, black 30%, transparent 100%); transition: mask-image 0.3s ease; }
+.nx-project-details-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; opacity: 0; transition: opacity 0.3s ease; }
+.nx-project-card.nx-open .nx-project-details-overlay { transform: translateY(0); cursor: default; }
+.nx-project-card.nx-open .nx-project-image-placeholder { transform: scale(1.05); filter: brightness(0.4); }
+.nx-project-card.nx-open .nx-wireframe-text-faded { -webkit-mask-image: none; mask-image: none; }
+.nx-project-card.nx-open .nx-project-details-body { opacity: 1; transition-delay: 0.2s; }
 
-/* Efecto de difuminado hacia abajo */
-.nx-wireframe-text-faded {
-  display: flex; flex-direction: column; gap: 0.6rem;
-  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-  transition: mask-image 0.3s ease;
-}
-
-.nx-project-details-body {
-  padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;
-  opacity: 0; transition: opacity 0.3s ease;
-}
-
-/* ESTADO ABIERTO */
-.nx-project-card.nx-open .nx-project-details-overlay {
-  transform: translateY(0); cursor: default;
-}
-.nx-project-card.nx-open .nx-project-image-placeholder {
-  transform: scale(1.05); filter: brightness(0.4);
-}
-.nx-project-card.nx-open .nx-wireframe-text-faded {
-  -webkit-mask-image: none; mask-image: none; /* Quita el difuminado al abrir */
-}
-.nx-project-card.nx-open .nx-project-details-body {
-  opacity: 1; transition-delay: 0.2s;
-}
-
-/* Vista PM - Tarjetas Expansibles (Acordeón Dinámico) */
-.nx-pm-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  width: 100%;
-}
-
+/* Vista 3: PM Accordion */
+.nx-pm-list { display: flex; flex-direction: column; gap: 1.2rem; width: 100%; }
 .nx-pm-card {
-  background: #12141D;
-  border-radius: var(--radius-box);
-  padding: 1.5rem;
+  background: #12141D; border-radius: var(--radius-box); padding: 1.5rem;
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+.nx-pm-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+.nx-pm-header { display: flex; justify-content: space-between; align-items: center; }
+.nx-pm-expand-icon { color: rgba(255, 255, 255, 0.5); font-size: 1.8rem; font-weight: 300; line-height: 1; transition: transform 0.3s ease, color 0.3s ease; }
+.nx-pm-body-wrapper { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.nx-pm-body { overflow: hidden; display: flex; flex-direction: column; gap: 0.8rem; opacity: 0; transition: opacity 0.3s ease; padding-top: 0; }
+.nx-pm-card.nx-open { border-color: var(--orb-orange); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 12px 24px rgba(0, 0, 0, 0.4); }
+.nx-pm-card.nx-open .nx-pm-expand-icon { transform: rotate(45deg); color: var(--orb-orange); }
+.nx-pm-card.nx-open .nx-pm-body-wrapper { grid-template-rows: 1fr; }
+.nx-pm-card.nx-open .nx-pm-body { opacity: 1; padding-top: 1.5rem; transition-delay: 0.1s; }
 
-.nx-pm-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.nx-pm-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nx-pm-expand-icon {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1.8rem;
-  font-weight: 300;
-  line-height: 1;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-/* Motor de Altura Dinámica: CSS Grid Transition */
-.nx-pm-body-wrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.nx-pm-body {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding-top: 0; 
-}
-
-/* ESTADO ABIERTO */
-.nx-pm-card.nx-open {
-  border-color: var(--orb-orange); /* Acento sutil en el borde al abrir */
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 12px 24px rgba(0, 0, 0, 0.4);
-}
-
-.nx-pm-card.nx-open .nx-pm-expand-icon {
-  transform: rotate(45deg); /* Convierte el '+' en una 'x' */
-  color: var(--orb-orange);
-}
-
-.nx-pm-card.nx-open .nx-pm-body-wrapper {
-  grid-template-rows: 1fr; /* Expande la caja suavemente hasta su altura real */
-}
-
-.nx-pm-card.nx-open .nx-pm-body {
-  opacity: 1;
-  padding-top: 1.5rem;
-  transition-delay: 0.1s;
-}
-
-/* Vista Diseño - Galería Asimétrica (Masonry-lite) */
-.nx-design-masonry {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap-bento);
-  width: 100%;
-}
-
-.nx-design-col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-bento);
-}
-
-/* Tarjeta Base de Diseño (Cristal Oscuro) */
+/* Vista 4: Diseño Masonry */
+.nx-design-masonry { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
+.nx-design-col { display: flex; flex-direction: column; gap: var(--gap-bento); }
 .nx-design-card {
-  width: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%), #12141D;
-  border-radius: var(--radius-box);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  width: 100%; background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%), #12141D;
+  border-radius: var(--radius-box); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
+.nx-card-tall { height: 16rem; }
+.nx-card-square { aspect-ratio: 1; }
+.nx-design-card:hover { transform: translateY(-6px) scale(1.02); border-color: rgba(255, 255, 255, 0.2); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5); z-index: 2; }
 
-/* Proporciones Alternas */
-.nx-card-tall {
-  height: 16rem; /* Formato alargado vertical */
-}
-
-.nx-card-square {
-  aspect-ratio: 1; /* Cuadrado perfecto matemático */
-}
-
-/* Interacción de Elevación (Hover) */
-.nx-design-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5);
-  z-index: 2; /* Asegura que la sombra pase por encima de las otras tarjetas */
-}
 
 /* =========================================
-   FASE 1.22.3: MEDIA QUERIES (DESKTOP ESTABILIZADO)
+   MEDIA QUERIES - DESKTOP DASHBOARD (>1024px)
    ========================================= */
 @media (min-width: 1024px) {
   .nx-portfolio-wrapper { 
-    max-width: 1200px; /* Se expande a formato ancho */
+    max-width: 1200px; 
     padding: 4rem 2rem; 
   }
   
@@ -394,14 +197,10 @@
     position: sticky; 
     top: 4rem; 
     z-index: 10;
-    align-items: stretch; /* Tarjeta a full width dentro del sidebar */
+    align-items: stretch; /* Permite que la tarjeta ocupe el 100% del sidebar */
   }
   
-  /* Centrado forzado solo para el avatar */
-  .nx-sidebar-wrapper .nx-avatar-box {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  /* El avatar se mantiene centrado gracias al align-self de su clase base */
   
   .nx-views-container { 
     flex: 1; 
@@ -409,20 +208,16 @@
     max-width: 800px; 
   }
   
-  /* Expansión vertical de la tarjeta para empujar el menú */
   .nx-base-card { 
-    margin-bottom: 0; 
-    min-height: 450px; 
-    display: flex;
-    flex-direction: column;
+    min-height: 520px; /* Tarjeta alargada estilo SaaS */
   }
   
-  /* Rediseño del menú SaaS */
+  /* Rediseño del menú SaaS Vertical */
   .nx-nav-menu { 
     flex-direction: column; 
     align-items: stretch; 
     gap: 0.5rem; 
-    margin-top: auto; /* Empuja el menú al fondo */
+    margin-top: auto; /* Ancla al fondo */
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }

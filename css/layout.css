@@ -356,3 +356,75 @@
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5);
   z-index: 2; /* Asegura que la sombra pase por encima de las otras tarjetas */
 }
+
+/* =========================================
+   FASE 1.22: MEDIA QUERIES (DESKTOP & TABLET PRO)
+   Modelo Dashboard: Sidebar Fijo + Main Canvas
+   ========================================= */
+@media (min-width: 1024px) {
+  /* 1. Expandir el cascarón principal */
+  .nx-portfolio-wrapper { 
+    max-width: 1200px; 
+    padding: 4rem 2rem; 
+  }
+  
+  /* 2. Convertir layout de columna a fila (Sidebar Izq + Vistas Der) */
+  .nx-mobile-frame { 
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 4rem; 
+  }
+  
+  /* 3. Sidebar Izquierdo (Fijo/Sticky) */
+  .nx-sidebar-wrapper { 
+    width: 320px; 
+    flex-shrink: 0; 
+    position: sticky; 
+    top: 4rem; /* Se queda anclado al hacer scroll */
+    z-index: 10;
+  }
+  
+  /* 4. Area de Vistas Derecha */
+  .nx-views-container { 
+    flex: 1; /* Toma todo el ancho sobrante */
+    min-width: 0; 
+  }
+  
+  /* 5. Ajuste de la Tarjeta Base */
+  .nx-base-card { 
+    margin-bottom: 0; 
+    height: auto; 
+    padding-bottom: 2rem;
+  }
+  
+  /* 6. Mutación del Menú: De Horizontal a Vertical estilo SaaS */
+  .nx-nav-menu { 
+    flex-direction: column; 
+    align-items: stretch; 
+    gap: 0.5rem; 
+    margin-top: 2rem; 
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .nx-nav-item { 
+    padding: 1rem 1.5rem; 
+    text-align: left; 
+    border-radius: 0.5rem; 
+    font-size: 0.9rem;
+  }
+  
+  /* Mutación del indicador activo */
+  .nx-nav-item.nx-active::after { display: none; }
+  .nx-nav-item.nx-active { 
+    background: rgba(255, 255, 255, 0.05); 
+    border-left: 3px solid var(--orb-orange); 
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  
+  /* 7. Respiración de las Cuadrículas */
+  .nx-bento-grid { gap: 1.5rem; }
+  .nx-bento-row-asym, .nx-bento-row-social { gap: 1.5rem; }
+  .nx-dev-stack { gap: 3rem; }
+  .nx-design-masonry { gap: 1.5rem; }
+}

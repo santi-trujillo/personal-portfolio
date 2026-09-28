@@ -380,14 +380,20 @@
     width: 320px; 
     flex-shrink: 0; 
     position: sticky; 
-    top: 4rem; /* Se queda anclado al hacer scroll */
+    top: 4rem; 
     z-index: 10;
+    /* PARCHE: Obliga al avatar a centrarse para coincidir con el cutout de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   /* 4. Area de Vistas Derecha */
   .nx-views-container { 
-    flex: 1; /* Toma todo el ancho sobrante */
+    flex: 1; 
     min-width: 0; 
+    /* PARCHE: Límite de expansión para evitar que las cajas se estiren en exceso en monitores grandes */
+    max-width: 800px; 
   }
   
   /* 5. Ajuste de la Tarjeta Base */

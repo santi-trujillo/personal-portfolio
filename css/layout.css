@@ -1,5 +1,12 @@
 /* Contenedor y Orbes */
-.nx-portfolio-wrapper { position: relative; width: 100%; max-width: 400px; }
+/* 1. Límite para Móvil y Tablets (Cura el estiramiento gigante) */
+.nx-portfolio-wrapper { 
+  position: relative; 
+  width: 100%; 
+  max-width: 480px; /* Límite vital para iPad Mini y Surface */
+  margin: 0 auto; 
+  transition: max-width 0.3s ease;
+}
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
 .nx-orb-orange { width: 302px; height: 302px; background: var(--orb-orange); filter: blur(125px); top: -5%; right: -10%; }
 .nx-orb-purple { width: 524px; height: 524px; background: var(--orb-purple); filter: blur(150px); bottom: -10%; left: -20%; }
@@ -7,7 +14,7 @@
 /* Cascarón Móvil */
 .nx-mobile-frame { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
-/* Envoltura base (Mobile) para centrar el avatar con la tarjeta */
+/* 2. Envoltura base para centrar en móviles */
 .nx-sidebar-wrapper {
   width: 100%;
   display: flex;
@@ -15,21 +22,22 @@
   align-items: center;
 }
 
-/* Avatar */
+/* 3. Recuperación del Avatar (Fuerza el traslape en el cutout) */
 .nx-avatar-box { 
   width: var(--avatar-size); 
   height: var(--avatar-size); 
   background: var(--avatar-placeholder); 
   border-radius: var(--radius-avatar); 
   position: relative; 
-  z-index: 2; 
-  margin-bottom: calc(var(--avatar-size) / -2); 
-  /* Elevación 3D para el avatar */
+  z-index: 10; 
+  margin-bottom: calc(var(--avatar-size) / -2); /* Retorna a -80px */
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Tarjeta Base */
 .nx-base-card { 
+  position: relative;
+  z-index: 5;
   width: 100%; 
   background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
   border-radius: var(--radius-card);
@@ -366,72 +374,67 @@
 }
 
 /* =========================================
-   FASE 1.22: MEDIA QUERIES (DESKTOP & TABLET PRO)
-   Modelo Dashboard: Sidebar Fijo + Main Canvas
+   FASE 1.22.3: MEDIA QUERIES (DESKTOP ESTABILIZADO)
    ========================================= */
 @media (min-width: 1024px) {
-  /* 1. Expandir el cascarón principal */
   .nx-portfolio-wrapper { 
-    max-width: 1200px; 
+    max-width: 1200px; /* Se expande a formato ancho */
     padding: 4rem 2rem; 
   }
   
-  /* 2. Convertir layout de columna a fila (Sidebar Izq + Vistas Der) */
   .nx-mobile-frame { 
     flex-direction: row; 
     align-items: flex-start; 
     gap: 4rem; 
   }
   
-  /* 3. Sidebar Izquierdo (Fijo/Sticky) */
   .nx-sidebar-wrapper { 
     width: 320px; 
     flex-shrink: 0; 
     position: sticky; 
     top: 4rem; 
     z-index: 10;
-    /* Restaura el ancho completo interno para que la tarjeta no colapse */
-    align-items: stretch; 
+    align-items: stretch; /* Tarjeta a full width dentro del sidebar */
   }
-
-  /* Centrado forzado solo para el avatar dentro del sidebar Desktop */
+  
+  /* Centrado forzado solo para el avatar */
   .nx-sidebar-wrapper .nx-avatar-box {
     margin-left: auto;
     margin-right: auto;
   }
   
-  /* 4. Area de Vistas Derecha */
   .nx-views-container { 
     flex: 1; 
     min-width: 0; 
     max-width: 800px; 
   }
   
-  /* 5. Ajuste de la Tarjeta Base */
+  /* Expansión vertical de la tarjeta para empujar el menú */
   .nx-base-card { 
     margin-bottom: 0; 
-    height: auto; 
-    padding-bottom: 2rem;
+    min-height: 450px; 
+    display: flex;
+    flex-direction: column;
   }
   
-  /* 6. Mutación del Menú: De Horizontal a Vertical estilo SaaS */
+  /* Rediseño del menú SaaS */
   .nx-nav-menu { 
     flex-direction: column; 
     align-items: stretch; 
     gap: 0.5rem; 
-    margin-top: auto; /* Empuja al fondo */
+    margin-top: auto; /* Empuja el menú al fondo */
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
   
   .nx-nav-item { 
+    width: 100%;
     padding: 1rem 1.5rem; 
     text-align: left; 
     border-radius: 0.5rem; 
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
-  /* Mutación del indicador activo */
   .nx-nav-item.nx-active::after { display: none; }
   .nx-nav-item.nx-active { 
     background: rgba(255, 255, 255, 0.05); 
@@ -439,9 +442,6 @@
     border-radius: 0 0.5rem 0.5rem 0;
   }
   
-  /* 7. Respiración de las Cuadrículas */
-  .nx-bento-grid { gap: 1.5rem; }
-  .nx-bento-row-asym, .nx-bento-row-social { gap: 1.5rem; }
+  .nx-bento-grid, .nx-bento-row-asym, .nx-bento-row-social, .nx-design-masonry { gap: 1.5rem; }
   .nx-dev-stack { gap: 3rem; }
-  .nx-design-masonry { gap: 1.5rem; }
 }

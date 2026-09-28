@@ -153,20 +153,7 @@
   height: 2.5rem; 
   background: rgba(255, 255, 255, 0.05); 
   border-radius: 0.5rem; 
-  margin: 0 auto 1.5rem auto; 
-}
-
-.nx-wireframe-stats { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 0.8rem; 
-  margin-bottom: 1.5rem; 
-}
-
-.nx-wireframe-stat-box { 
-  height: 3.5rem; 
-  background: rgba(255, 255, 255, 0.05); 
-  border-radius: 0.5rem; 
+  margin: 0 auto 2rem auto; /* Margen inferior ampliado a 2rem para separar de la bio */
 }
 
 .nx-wireframe-bio { 

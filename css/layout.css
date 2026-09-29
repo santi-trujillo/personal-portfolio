@@ -132,10 +132,30 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-box-title { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; margin: 0 0 0.2rem 0; line-height: 1; }
 .nx-box-subtitle { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 400; color: rgba(255, 255, 255, 0.6); margin: 0; letter-spacing: 0.5px; }
 
-/* Ajuste específico para la fila de 3 (Filiustec, LinkedIn, Notbook) por espacio reducido */
-.nx-bento-row-asym .nx-box-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-.nx-bento-row-asym .nx-box-title { font-size: 0.85rem; }
-.nx-bento-row-asym .nx-box-subtitle { font-size: 0.65rem; }
+/* EL SECRETO CONTRA EL DESBORDAMIENTO: minmax(0, 1fr) */
+.nx-bento-row-asym { 
+  grid-column: 1 / -1; 
+  display: grid; 
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Fuerza la contención estricta */
+  gap: 0.6rem; /* Reducimos el gap en móvil para darles más ancho útil a las cajas */
+}
+
+/* Ajustes de oxígeno interno para las 3 micro-cards en móvil */
+.nx-bento-row-asym .nx-box-content {
+  padding: 0.8rem 0.4rem; /* Menos padding lateral para que quepa la información */
+}
+.nx-bento-row-asym .nx-box-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+.nx-bento-row-asym .nx-box-title { font-size: 0.75rem; } 
+.nx-bento-row-asym .nx-box-subtitle { font-size: 0.6rem; }
+
+/* Restauración del volumen original para Tabletas y Escritorio (>768px) */
+@media (min-width: 768px) {
+  .nx-bento-row-asym { gap: var(--gap-bento); }
+  .nx-bento-row-asym .nx-box-content { padding: 1rem; }
+  .nx-bento-row-asym .nx-box-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+  .nx-bento-row-asym .nx-box-title { font-size: 0.9rem; }
+  .nx-bento-row-asym .nx-box-subtitle { font-size: 0.7rem; }
+}
 
 .nx-project-title { font-size: 1.5rem; color: #fff; margin: 0; }
 .nx-project-tech { font-size: 0.9rem; color: var(--orb-purple); font-weight: 600; margin: 0; }
@@ -165,7 +185,6 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-box-github { background: radial-gradient(circle at 50% -20%, var(--orb-github) 0%, transparent 60%), var(--base-github); height: 7.5rem; grid-column: 1 / -1; }
 /* Nuevo nodo LinkedIn y fila de 3 columnas */
 :root { --base-in: #0A66C2; --orb-in: rgba(10, 102, 194, 0.8); }
-.nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap-bento); }
 .nx-box-in { background: radial-gradient(circle at 50% 0%, var(--orb-in) 0%, transparent 60%), var(--base-in); height: 11rem; }
 .nx-box-filiustec { background: radial-gradient(circle at 100% 100%, var(--orb-filius-1) 0%, transparent 65%), radial-gradient(circle at 0% 0%, var(--orb-filius-2) 0%, transparent 65%), var(--base-filius); height: 11rem; }
 .nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 11rem; }

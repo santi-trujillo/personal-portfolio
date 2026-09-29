@@ -71,15 +71,53 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-nav-item.nx-active { color: #ffffff; font-weight: 600; }
 .nx-nav-item.nx-active::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 2px; background: var(--orb-orange); border-radius: 2px; }
 
-/* TIPOGRAFÍA DE PERFIL AL ESTILO FIGMA */
-.nx-profile-header { text-align: center; margin-bottom: 1.5rem; }
-.nx-profile-name { font-size: 1.8rem; font-weight: 700; color: #fff; margin: 0; }
+/* TIPOGRAFÍA DE PERFIL AL ESTILO FIGMA (ALTA FIDELIDAD) */
+.nx-profile-container { 
+  display: inline-flex; flex-direction: column; 
+  justify-content: flex-start; align-items: flex-start; 
+  gap: 2rem; /* Equivalente a los 32px del Figma */
+  width: 100%;
+}
 
-.nx-profile-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.8rem; align-items: center; }
-.nx-profile-list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.8); }
-.nx-profile-list li span { font-size: 1.2rem; }
+.nx-profile-header { 
+  display: flex; flex-direction: column; 
+  justify-content: flex-start; align-items: center; 
+  gap: 0.4rem; /* 7px */
+  width: 100%;
+}
 
-.nx-profile-footer { display: flex; justify-content: center; align-items: center; padding-top: 1.2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; }
+.nx-profile-name { 
+  color: white; font-size: 1.5rem; /* 24px */
+  font-family: 'Poppins', sans-serif; font-weight: 600; 
+  line-height: 1.2; margin: 0; text-align: center;
+}
+
+.nx-profile-list { 
+  display: inline-flex; flex-direction: column; 
+  justify-content: center; align-items: flex-start; 
+  gap: 0.8rem; /* Aumentado ligeramente para legibilidad web */
+  list-style: none; padding: 0; margin: 0; 
+}
+
+.nx-profile-list li { 
+  color: white; font-size: 0.9rem; /* Escala base */
+  font-family: 'Inter', sans-serif; font-weight: 400; 
+  letter-spacing: 1px; /* El toque premium del Figma */
+  display: flex; align-items: center; gap: 0.6rem;
+}
+
+.nx-profile-list li span { font-size: 1.1rem; }
+
+.nx-profile-footer { 
+  display: inline-flex; justify-content: flex-start; align-items: flex-start; 
+  gap: 15px; margin-top: 1rem; border-top: none; /* Se quita el borde para apegarse al Figma */
+}
+
+.nx-profile-footer-item { 
+  display: flex; justify-content: flex-start; align-items: center; gap: 0.4rem; 
+  color: white; font-size: 0.8rem; 
+  font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 1px; 
+}
 
 .nx-box-text { color: white; font-weight: 600; font-size: 1.2rem; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; transition: transform 0.3s ease; }
 .nx-box-text:hover { transform: scale(1.05); }

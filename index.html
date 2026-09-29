@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santiago Trujillo | Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/global.css">
   <link rel="stylesheet" href="./css/layout.css?v=FINAL">
   <link rel="stylesheet" href="./css/components.css">
@@ -23,21 +24,30 @@
         
         <!-- Tarjeta Base Superior (Bio + Menú) -->
         <article class="nx-base-card">
-          <div class="nx-profile-header">
-            <h1 class="nx-profile-name">Santiago Trujillo</h1>
+          
+          <div class="nx-profile-container">
+            <!-- Bloque de Nombre -->
+            <div class="nx-profile-header">
+              <h1 class="nx-profile-name">Santiago Trujillo</h1>
+            </div>
+            
+            <!-- Bloque de Atributos -->
+            <ul class="nx-profile-list">
+              <li><span>🎈</span> 05.11.1997</li>
+              <li><span>📍</span> Project Manager & Frontend Developer</li>
+              <li><span>👨💻</span> Dev de día | PM de noche</li>
+            </ul>
+            
+            <!-- Pie de Tarjeta -->
+            <div class="nx-profile-footer">
+              <div class="nx-profile-footer-item">
+                <!-- Se simula el ícono de ubicación del Figma -->
+                <span>🛫</span> Disponibilidad: Bogotá
+              </div>
+            </div>
           </div>
           
-          <ul class="nx-profile-list">
-            <li><span>🎂</span> 05.11.1997</li>
-            <li><span>👨💻</span> Project Manager & Frontend Developer</li>
-            <li><span>⚡</span> Dev de día | PM de noche</li>
-          </ul>
-          
-          <div class="nx-profile-footer">
-            <span>🛫 Disponibilidad: Bogotá</span>
-          </div>
-          
-          <!-- Menú de Navegación Central -->
+          <!-- Menú de Navegación Central (INTACTO) -->
           <nav class="nx-nav-menu">
             <button class="nx-nav-item nx-active" data-target="view-general">General</button>
             <button class="nx-nav-item" data-target="view-dev">Dev</button>

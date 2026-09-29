@@ -117,58 +117,74 @@
    2. DASHBOARD HORIZONTAL (Laptops, Desktops, Landscape Tablets)
    ========================================= */
 @media (min-width: 992px) {
+  /* ESCALADO PROPORCIONAL: Infla las variables maestras solo en pantallas anchas */
+  :root {
+    --avatar-size: 200px; /* Crece el avatar un 25% */
+    --radius-card: 3rem; /* Bordes más suaves y monumentales */
+    --gap-bento: 2rem; /* Más aire entre cajas para evitar saturación */
+  }
+
   .nx-portfolio-wrapper { 
-    max-width: 1200px; 
-    padding: 4rem 2rem; 
+    max-width: 1440px; /* Lienzo mucho más amplio */
+    padding: 5rem 3rem; 
   }
   
   .nx-mobile-frame { 
     flex-direction: row; 
     align-items: flex-start; 
-    gap: 4rem; 
+    gap: 5rem; /* Separación masiva entre sidebar y el contenido derecho */
   }
   
-  /* Sidebar fijo a la izquierda */
+  /* Sidebar robusto inspirado en el rediseño B2B */
   .nx-sidebar-wrapper { 
-    width: 320px; 
+    width: 380px; 
     flex-shrink: 0; 
     position: sticky; 
-    top: 4rem; 
+    top: 5rem; 
     z-index: 10;
+    padding-top: 100px; /* Mitad matemática del nuevo avatar de 200px */
   }
-  
-  /* El avatar mantiene su position: absolute, quedando centrado respecto a los 320px del sidebar */
   
   .nx-views-container { 
     flex: 1; 
     min-width: 0; 
   }
   
+  /* Tarjeta estirada con nueva geometría para el hueco del avatar gigante */
   .nx-base-card { 
-    min-height: 520px; /* Estira la tarjeta para llenar el espacio vertical */
+    min-height: 600px; 
+    padding: 136px 2.5rem 2.5rem 2.5rem; /* Ajuste para el nuevo cutout */
+    
+    /* Nuevo SVG de máscara generado para 200px + 24px de margen = 224px */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='224' height='224'%3E%3Crect width='224' height='224' rx='50' fill='black'/%3E%3C/svg%3E"), linear-gradient(black, black);
+    -webkit-mask-position: 50% -112px, 0 0;
   }
   
-  /* Menú SaaS (Vertical) */
+  /* Menú SaaS (Vertical) Escalonado */
   .nx-nav-menu { 
     flex-direction: column; 
     align-items: stretch; 
-    gap: 0.5rem; 
+    gap: 0.8rem; 
     margin-top: auto; 
-    padding-top: 2rem;
+    padding-top: 2.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
   
   .nx-nav-item { 
-    width: 100%; padding: 1rem 1.5rem; text-align: left; border-radius: 0.5rem; font-size: 1rem;
+    width: 100%; 
+    padding: 1.2rem 2rem; 
+    text-align: left; 
+    border-radius: 0.8rem; 
+    font-size: 1.1rem;
   }
   
   .nx-nav-item.nx-active::after { display: none; }
   .nx-nav-item.nx-active { 
     background: rgba(255, 255, 255, 0.05); 
-    border-left: 3px solid var(--orb-orange); 
-    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: 4px solid var(--orb-orange); 
+    border-radius: 0 0.8rem 0.8rem 0;
   }
   
-  .nx-bento-grid, .nx-bento-row-asym, .nx-bento-row-social, .nx-design-masonry { gap: 1.5rem; }
-  .nx-dev-stack { gap: 3rem; }
+  .nx-bento-grid, .nx-bento-row-asym, .nx-bento-row-social, .nx-design-masonry { gap: var(--gap-bento); }
+  .nx-dev-stack { gap: 4rem; }
 }

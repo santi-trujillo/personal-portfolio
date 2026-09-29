@@ -13,9 +13,9 @@
   --base-wa: #128C7E; /* Verde corporativo oscuro */
   --orb-wa: rgba(37, 211, 102, 0.9); /* Luz verde brillante */
 
-  /* Correo */
-  --base-correo: #143061; /* Azul profundo */
-  --orb-correo: rgba(53, 165, 238, 0.7); /* Luz celeste */
+  /* Correo (Gmail) */
+  --base-correo: #8B1A10; /* Rojo oscuro premium */
+  --orb-correo: rgba(234, 67, 53, 0.8); /* Rojo Google */
 
   /* GitHub */
   --base-github: #0D1117; /* Negro/Grafito */

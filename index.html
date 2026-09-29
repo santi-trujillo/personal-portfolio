@@ -23,17 +23,16 @@
         
         <!-- Tarjeta Base Superior (Bio + Menú) -->
         <article class="nx-base-card">
-          
-          <!-- Contenedores Internos (Wireframes Temporales) -->
-          <div class="nx-wireframe-header"></div>
-          
-          <div class="nx-wireframe-bio">
-            <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-            <div class="nx-wireframe-bio-line" style="width: 85%;"></div>
-            <div class="nx-wireframe-bio-line" style="width: 90%;"></div>
+          <div class="nx-profile-header">
+            <h1 class="nx-profile-name">Santiago Trujillo</h1>
+            <h2 class="nx-profile-title">Project Manager y Frontend Developer</h2>
           </div>
           
-          <!-- Menú de Navegación Central (INTERNO) -->
+          <p class="nx-profile-bio">
+            Con 28 años y una visión estratégica, fusiono el desarrollo ágil de interfaces con la gestión eficiente de proyectos y equipos. Actualmente en Ibagué, con proyección a Bogotá y Medellín. Creando experiencias digitales escalables.
+          </p>
+          
+          <!-- Menú de Navegación Central -->
           <nav class="nx-nav-menu">
             <button class="nx-nav-item nx-active" data-target="view-general">General</button>
             <button class="nx-nav-item" data-target="view-dev">Dev</button>
@@ -46,109 +45,91 @@
       <!-- CONTENEDOR MAESTRO DE VISTAS -->
       <div class="nx-views-container">
         
-        <!-- VISTA 1: General (Hub Principal - ACTIVA POR DEFECTO) -->
+        <!-- VISTA 1: General (Bento Grid) -->
         <div id="view-general" class="nx-view nx-active-view">
-          <!-- Bento Grid Fluido (Panel de Redes y Contacto) -->
           <div class="nx-bento-grid">
-            <!-- Fila 1: WhatsApp y Correo -->
-            <div class="nx-box nx-box-wa"></div>
-            <div class="nx-box nx-box-correo"></div>
+            <a href="#" class="nx-box nx-box-wa"><span class="nx-box-text">WhatsApp</span></a>
+            <a href="mailto:filius.tec@gmail.com" class="nx-box nx-box-correo"><span class="nx-box-text">Correo</span></a>
             
-            <!-- Fila 2: GitHub (Full width) -->
-            <div class="nx-box nx-box-github"></div>
+            <a href="https://github.com/santi-trujillo" target="_blank" class="nx-box nx-box-github"><span class="nx-box-text">GitHub</span></a>
             
-            <!-- Fila 3: Filiustec y Notbook (Asimétrica) -->
             <div class="nx-bento-row-asym">
-              <div class="nx-box nx-box-filiustec"></div>
-              <div class="nx-box nx-box-notbook"></div>
+              <a href="https://filiustec.me/" target="_blank" class="nx-box nx-box-filiustec"><span class="nx-box-text">Filiustec</span></a>
+              <a href="https://www.linkedin.com/in/santiago-trujillo-v" target="_blank" class="nx-box nx-box-in"><span class="nx-box-text">LinkedIn</span></a>
+              <a href="#" class="nx-box nx-box-notbook"><span class="nx-box-text">Notbook</span></a>
             </div>
 
-            <!-- Fila 4: Instagram y Facebook -->
             <div class="nx-bento-row-social">
-              <div class="nx-box nx-box-ig"></div>
-              <div class="nx-box nx-box-fb"></div>
+              <a href="https://www.instagram.com/santi.trujillo.v" target="_blank" class="nx-box nx-box-ig"><span class="nx-box-text">Instagram</span></a>
+              <a href="https://www.facebook.com/share/1KZ6LZWro1/" target="_blank" class="nx-box nx-box-fb"><span class="nx-box-text">Facebook</span></a>
             </div>
           </div>
         </div>
 
-        <!-- VISTA 2: Dev (Proyectos de Desarrollo) -->
+        <!-- VISTA 2: Dev -->
         <div id="view-dev" class="nx-view">
           <div class="nx-dev-stack">
             
-            <!-- Tarjeta de Proyecto 1 -->
+            <!-- Proyecto 1 -->
             <div class="nx-project-card">
               <div class="nx-project-image-placeholder"></div>
               <div class="nx-project-details-overlay">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
-                  <div class="nx-wireframe-title" style="width: 50%;"></div>
-                  <div class="nx-wireframe-text-faded">
-                    <div class="nx-wireframe-bio-line" style="width: 90%;"></div>
-                    <div class="nx-wireframe-bio-line" style="width: 60%;"></div>
-                  </div>
+                  <h3 class="nx-project-title">Filiustec Legal</h3>
+                  <p class="nx-project-tech">HTML • CSS • JS • UI/UX</p>
                 </div>
                 <div class="nx-project-details-body">
-                  <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 85%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 70%;"></div>
+                  <p class="nx-project-desc">Rediseño integral de sitio web para firma de abogados, enfocado en optimización de conversión y arquitectura Mobile-First.</p>
+                  <a href="https://lpemberthy.vercel.app/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
 
-            <!-- Tarjeta de Proyecto 2 -->
+            <!-- Proyecto 2 -->
             <div class="nx-project-card">
               <div class="nx-project-image-placeholder"></div>
               <div class="nx-project-details-overlay">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
-                  <div class="nx-wireframe-title" style="width: 40%;"></div>
-                  <div class="nx-wireframe-text-faded">
-                    <div class="nx-wireframe-bio-line" style="width: 85%;"></div>
-                    <div class="nx-wireframe-bio-line" style="width: 50%;"></div>
-                  </div>
+                  <h3 class="nx-project-title">Viva Solar</h3>
+                  <p class="nx-project-tech">HTML • CSS • JS</p>
                 </div>
                 <div class="nx-project-details-body">
-                  <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 90%;"></div>
+                  <p class="nx-project-desc">Landing page corporativa de alto rendimiento para el sector de energías renovables en Colombia.</p>
+                  <a href="https://vivasolar-colombia.netlify.app/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
 
-            <!-- Tarjeta de Proyecto 3 -->
+            <!-- Proyecto 3 -->
             <div class="nx-project-card">
               <div class="nx-project-image-placeholder"></div>
               <div class="nx-project-details-overlay">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
-                  <div class="nx-wireframe-title" style="width: 60%;"></div>
-                  <div class="nx-wireframe-text-faded">
-                    <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                    <div class="nx-wireframe-bio-line" style="width: 75%;"></div>
-                  </div>
+                  <h3 class="nx-project-title">Filiustec Agency</h3>
+                  <p class="nx-project-tech">Frontend • Figma • Clean Code</p>
                 </div>
                 <div class="nx-project-details-body">
-                  <div class="nx-wireframe-bio-line" style="width: 95%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 80%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 60%;"></div>
+                  <p class="nx-project-desc">Plataforma oficial de agencia creativa. Desarrollo de identidad visual y maquetación de alta fidelidad.</p>
+                  <a href="https://filiustec.me/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
 
-            <!-- Tarjeta de Proyecto 4 -->
+            <!-- Proyecto 4 -->
             <div class="nx-project-card">
               <div class="nx-project-image-placeholder"></div>
               <div class="nx-project-details-overlay">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
-                  <div class="nx-wireframe-title" style="width: 45%;"></div>
-                  <div class="nx-wireframe-text-faded">
-                    <div class="nx-wireframe-bio-line" style="width: 80%;"></div>
-                    <div class="nx-wireframe-bio-line" style="width: 55%;"></div>
-                  </div>
+                  <h3 class="nx-project-title">Industrial Safety B2B</h3>
+                  <p class="nx-project-tech">Shopify • Liquid • E-commerce</p>
                 </div>
                 <div class="nx-project-details-body">
-                  <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 85%;"></div>
+                  <p class="nx-project-desc">Desarrollo de tienda online en Shopify con personalización en Liquid para la venta de botas de seguridad.</p>
+                  <a href="https://botasdeseguridad.myshopify.com/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
@@ -156,66 +137,54 @@
           </div>
         </div>
 
-        <!-- VISTA 3: PM (Tablero Gerencial) -->
+        <!-- VISTA 3: PM -->
         <div id="view-pm" class="nx-view">
           <div class="nx-pm-list">
             
-            <!-- PM Card 1 -->
             <div class="nx-pm-card">
               <div class="nx-pm-header">
-                <div class="nx-wireframe-title" style="width: 60%; margin: 0;"></div>
+                <h3 class="nx-pm-title">Práctica Gerencial - Enel Codensa</h3>
                 <div class="nx-pm-expand-icon">+</div>
               </div>
               <div class="nx-pm-body-wrapper">
                 <div class="nx-pm-body">
-                  <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 90%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 95%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 60%;"></div>
+                  <p class="nx-pm-text">Gestión de proyectos en el sector energético, optimización de recursos corporativos y seguimiento estricto de KPIs operativos.</p>
                 </div>
               </div>
             </div>
 
-            <!-- PM Card 2 -->
             <div class="nx-pm-card">
               <div class="nx-pm-header">
-                <div class="nx-wireframe-title" style="width: 45%; margin: 0;"></div>
+                <h3 class="nx-pm-title">Dirección E-commerce (Shopify)</h3>
                 <div class="nx-pm-expand-icon">+</div>
               </div>
               <div class="nx-pm-body-wrapper">
                 <div class="nx-pm-body">
-                  <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 85%;"></div>
+                  <p class="nx-pm-text">Coordinación de diseño, desarrollo y lanzamiento de tiendas online. Optimización del funnel de ventas y catálogo para modelos B2B/B2C.</p>
                 </div>
               </div>
             </div>
 
-            <!-- PM Card 3 -->
             <div class="nx-pm-card">
               <div class="nx-pm-header">
-                <div class="nx-wireframe-title" style="width: 70%; margin: 0;"></div>
+                <h3 class="nx-pm-title">Automatización & Herramientas</h3>
                 <div class="nx-pm-expand-icon">+</div>
               </div>
               <div class="nx-pm-body-wrapper">
                 <div class="nx-pm-body">
-                  <div class="nx-wireframe-bio-line" style="width: 100%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 95%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 80%;"></div>
+                  <p class="nx-pm-text">Creación de plantillas automatizadas en Google Sheets y gestión documental para el control eficiente de presupuestos y recursos.</p>
                 </div>
               </div>
             </div>
 
-            <!-- PM Card 4 -->
             <div class="nx-pm-card">
               <div class="nx-pm-header">
-                <div class="nx-wireframe-title" style="width: 55%; margin: 0;"></div>
+                <h3 class="nx-pm-title">Liderazgo Frontend Ágil</h3>
                 <div class="nx-pm-expand-icon">+</div>
               </div>
               <div class="nx-pm-body-wrapper">
                 <div class="nx-pm-body">
-                  <div class="nx-wireframe-bio-line" style="width: 90%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 75%;"></div>
-                  <div class="nx-wireframe-bio-line" style="width: 60%;"></div>
+                  <p class="nx-pm-text">Implementación de metodologías ágiles en equipos de desarrollo, garantizando entregas escalables y enfocadas en Clean Architecture.</p>
                 </div>
               </div>
             </div>
@@ -223,25 +192,17 @@
           </div>
         </div>
 
-        <!-- VISTA 4: Diseño (Galería Creativa) -->
+        <!-- VISTA 4: Diseño (Intacta por ahora) -->
         <div id="view-design" class="nx-view">
           <div class="nx-design-masonry">
-            
-            <!-- Columna Izquierda -->
             <div class="nx-design-col">
-              <!-- Tarjeta Alta (Formato Retrato/Móvil) -->
               <div class="nx-design-card nx-card-tall"></div>
-              <!-- Tarjeta Cuadrada (Formato Post/Logo) -->
               <div class="nx-design-card nx-card-square"></div>
             </div>
-
-            <!-- Columna Derecha -->
             <div class="nx-design-col">
-              <!-- Se invierte el orden para romper la simetría -->
               <div class="nx-design-card nx-card-square"></div>
               <div class="nx-design-card nx-card-tall"></div>
             </div>
-
           </div>
         </div>
 

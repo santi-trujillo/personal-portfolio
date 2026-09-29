@@ -71,6 +71,23 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-nav-item.nx-active { color: #ffffff; font-weight: 600; }
 .nx-nav-item.nx-active::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 2px; background: var(--orb-orange); border-radius: 2px; }
 
+/* TIPOGRAFÍA DE PERFIL Y VISTAS */
+.nx-profile-name { font-size: 2rem; font-weight: 700; color: #fff; margin: 0; line-height: 1.1; }
+.nx-profile-title { font-size: 1.1rem; font-weight: 500; color: var(--orb-orange); margin: 0 0 1rem 0; }
+.nx-profile-bio { font-size: 1rem; color: rgba(255, 255, 255, 0.75); line-height: 1.6; margin: 0; }
+
+.nx-box-text { color: white; font-weight: 600; font-size: 1.2rem; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; transition: transform 0.3s ease; }
+.nx-box-text:hover { transform: scale(1.05); }
+
+.nx-project-title { font-size: 1.5rem; color: #fff; margin: 0; }
+.nx-project-tech { font-size: 0.9rem; color: var(--orb-purple); font-weight: 600; margin: 0; }
+.nx-project-desc { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.5; margin: 0; }
+.nx-btn-link { display: inline-block; padding: 0.8rem 1.5rem; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; border-radius: 0.5rem; text-align: center; margin-top: 1rem; border: 1px solid rgba(255,255,255,0.2); transition: background 0.3s; }
+.nx-btn-link:hover { background: rgba(255,255,255,0.2); }
+
+.nx-pm-title { font-size: 1.1rem; color: #fff; font-weight: 600; margin: 0; }
+.nx-pm-text { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin: 0; }
+
 /* Vistas */
 .nx-views-container { width: 100%; position: relative; margin-top: 0; }
 .nx-view { display: none; animation: fadeIn 0.4s ease-out forwards; }
@@ -83,7 +100,10 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-box-wa { background: radial-gradient(circle at 100% 0%, var(--orb-wa) 0%, transparent 65%), var(--base-wa); height: 6rem; }
 .nx-box-correo { background: radial-gradient(circle at 0% 100%, var(--orb-correo) 0%, transparent 70%), var(--base-correo); height: 6rem; }
 .nx-box-github { background: radial-gradient(circle at 50% -20%, var(--orb-github) 0%, transparent 60%), var(--base-github); height: 7.5rem; grid-column: 1 / -1; }
-.nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--gap-bento); }
+/* Nuevo nodo LinkedIn y fila de 3 columnas */
+:root { --base-in: #0A66C2; --orb-in: rgba(10, 102, 194, 0.8); }
+.nx-bento-row-asym { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap-bento); }
+.nx-box-in { background: radial-gradient(circle at 50% 0%, var(--orb-in) 0%, transparent 60%), var(--base-in); height: 11rem; }
 .nx-box-filiustec { background: radial-gradient(circle at 100% 100%, var(--orb-filius-1) 0%, transparent 65%), radial-gradient(circle at 0% 0%, var(--orb-filius-2) 0%, transparent 65%), var(--base-filius); height: 11rem; }
 .nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 11rem; }
 .nx-bento-row-social { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-bento); }

@@ -19,14 +19,14 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-orb-orange { width: 300px; height: 300px; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }
 .nx-orb-purple { width: 500px; height: 500px; background: var(--orb-purple); filter: blur(120px); bottom: -10%; left: -20%; }
 
-/* 1. MODO MÓVIL Y TABLET PORTRAIT (Base Absoluta) */
+/* 1. MODO MÓVIL Y TABLET PORTRAIT (Base Absoluta Dinámica) */
 .nx-portfolio-wrapper { 
   position: relative; 
-  width: 100%; 
-  /* EXPANSIÓN: Sube de 480px a 800px para llenar las pantallas de tabletas */
-  max-width: 800px; 
+  /* Fluidez total: ocupa el 92% del ancho disponible hasta un máximo de 960px */
+  width: min(92vw, 960px); 
+  max-width: none; 
   margin: 0 auto; 
-  padding: 8rem 1.5rem 2rem 1.5rem; 
+  padding: 8rem 1rem 2rem 1rem; 
   box-sizing: border-box; 
 }
 
@@ -124,6 +124,21 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-card-square { aspect-ratio: 1; }
 .nx-design-card:hover { transform: translateY(-0.5rem) scale(1.02); border-color: rgba(255, 255, 255, 0.2); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5); z-index: 2; }
 
+
+/* Micro-ajuste proporcional para Tablets (768px - 1079px) */
+@media (min-width: 768px) and (max-width: 1079px) {
+  html { 
+    font-size: clamp(16px, 1.1vw + 7px, 20px); 
+  }
+
+  .nx-bento-grid { 
+    gap: 1.8rem; 
+  }
+
+  .nx-nav-item { 
+    font-size: 1.05rem; 
+  }
+}
 
 /* =========================================
    2. DASHBOARD HORIZONTAL & FLUIDO (>1080px)

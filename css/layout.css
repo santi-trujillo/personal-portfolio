@@ -149,6 +149,8 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
   html { font-size: clamp(14px, 0.9vw + 6px, 18px); }
 
   .nx-portfolio-wrapper { 
+    /* CORRECCIÓN: Rompe la atadura de los 960px y le devuelve el ancho total al lienzo */
+    width: 100%; 
     max-width: 1440px; 
     padding: 8.8rem 4vw 4rem 4vw; 
   }

@@ -1,79 +1,52 @@
 /* ==================================================
-   LAYOUT MAESTRO - SANTIAGO TRUJILLO PORTAFOLIO
+   LAYOUT MAESTRO RESPONSIVO (4 TIERS)
    ================================================== */
 
-/* 1. Límite para Móvil y Tablets (Cura el estiramiento gigante) */
+/* TIER 1: BASE MÓVIL (< 768px) */
 .nx-portfolio-wrapper { 
-  position: relative; 
-  width: 100%; 
-  max-width: 480px; 
-  margin: 0 auto; 
+  position: relative; width: 100%; max-width: 480px; margin: 0 auto; 
   transition: max-width 0.3s ease, padding 0.3s ease;
 }
 
-/* Orbes */
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
 .nx-orb-orange { width: 302px; height: 302px; background: var(--orb-orange); filter: blur(125px); top: -5%; right: -10%; }
 .nx-orb-purple { width: 524px; height: 524px; background: var(--orb-purple); filter: blur(150px); bottom: -10%; left: -20%; }
 
-/* Cascarón Móvil (Columna con separación) */
-.nx-mobile-frame { 
-  width: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  gap: 2rem; 
-}
+.nx-mobile-frame { width: 100%; display: flex; flex-direction: column; gap: 2rem; }
 
 /* Envoltura base (Mobile) para agrupar avatar y tarjeta */
 .nx-sidebar-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  width: 100%; position: relative; 
+  padding-top: 80px; /* Espacio exacto reservado para la mitad del avatar */
+  display: flex; flex-direction: column;
 }
 
-/* Recuperación del Avatar (Fuerza el centrado y traslape) */
+/* Recuperación del Avatar (Posición Absoluta Inquebrantable) */
 .nx-avatar-box { 
-  width: var(--avatar-size); 
-  height: var(--avatar-size); 
-  background: var(--avatar-placeholder); 
-  border-radius: var(--radius-avatar); 
-  position: relative; 
-  z-index: 10; 
-  margin-bottom: -80px; /* Fijo para anclaje exacto */
+  width: var(--avatar-size); height: var(--avatar-size); 
+  background: var(--avatar-placeholder); border-radius: var(--radius-avatar); 
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10; 
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
-  align-self: center; /* Obliga al centrado incluso si el padre se estira */
 }
 
 /* Tarjeta Base */
 .nx-base-card { 
-  position: relative;
-  z-index: 5;
-  width: 100%; 
+  position: relative; z-index: 5; width: 100%; 
   background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
   border-radius: var(--radius-card);
-  padding: 104px 1.5rem 1.5rem 1.5rem; /* 88px offset + 16px padding */
-  display: flex; 
-  flex-direction: column; 
-  gap: 1.5rem;
+  padding: 104px 1.5rem 1.5rem 1.5rem; 
+  display: flex; flex-direction: column; gap: 1.5rem;
   
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='176'%3E%3Crect width='176' height='176' rx='40' fill='black'/%3E%3C/svg%3E"), linear-gradient(black, black);
-  -webkit-mask-position: 50% -88px, 0 0;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
+  -webkit-mask-position: 50% -88px, 0 0; -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: destination-out; mask-composite: exclude;
   
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.08), inset 0 -4px 10px rgba(0, 0, 0, 0.5), 0 16px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Wireframes de Biografía */
-.nx-wireframe-header { 
-  width: 60%; height: 2.5rem; background: rgba(255, 255, 255, 0.05); 
-  border-radius: 0.5rem; margin: 0 auto 2rem auto; 
-}
+.nx-wireframe-header { width: 60%; height: 2.5rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; margin: 0 auto 2rem auto; }
 .nx-wireframe-bio { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: auto; }
 .nx-wireframe-bio-line { height: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.3rem; }
 
@@ -177,66 +150,41 @@
 
 
 /* =========================================
-   MEDIA QUERIES - DESKTOP DASHBOARD (>1024px)
+   SISTEMA DE MICRO-BREAKPOINTS (TIERS 2, 3 Y 4)
    ========================================= */
+
+/* TIER 2: TABLET PORTRAIT (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nx-portfolio-wrapper { max-width: 720px; padding: 2rem; }
+  .nx-bento-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* TIER 3: LAPTOP / DESKTOP SMALL (1024px - 1439px) */
 @media (min-width: 1024px) {
-  .nx-portfolio-wrapper { 
-    max-width: 1200px; 
-    padding: 4rem 2rem; 
-  }
-  
-  .nx-mobile-frame { 
-    flex-direction: row; 
-    align-items: flex-start; 
-    gap: 4rem; 
-  }
+  .nx-portfolio-wrapper { max-width: 1100px; padding: 4rem 2rem; }
+  .nx-mobile-frame { flex-direction: row; align-items: flex-start; gap: 3rem; }
   
   .nx-sidebar-wrapper { 
-    width: 320px; 
-    flex-shrink: 0; 
-    position: sticky; 
-    top: 4rem; 
-    z-index: 10;
-    align-items: stretch; /* Permite que la tarjeta ocupe el 100% del sidebar */
+    width: 300px; flex-shrink: 0; position: sticky; top: 4rem; 
   }
   
-  /* El avatar se mantiene centrado gracias al align-self de su clase base */
+  /* El avatar con posición absoluta mantiene su centrado matemático en el sidebar */
   
-  .nx-views-container { 
-    flex: 1; 
-    min-width: 0; 
-    max-width: 800px; 
-  }
+  .nx-views-container { flex: 1; min-width: 0; }
+  .nx-base-card { min-height: 480px; }
   
-  .nx-base-card { 
-    min-height: 520px; /* Tarjeta alargada estilo SaaS */
-  }
-  
-  /* Rediseño del menú SaaS Vertical */
-  .nx-nav-menu { 
-    flex-direction: column; 
-    align-items: stretch; 
-    gap: 0.5rem; 
-    margin-top: auto; /* Ancla al fondo */
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  
-  .nx-nav-item { 
-    width: 100%;
-    padding: 1rem 1.5rem; 
-    text-align: left; 
-    border-radius: 0.5rem; 
-    font-size: 1rem;
-  }
-  
+  /* Mutación del Menú a Vertical */
+  .nx-nav-menu { flex-direction: column; align-items: stretch; margin-top: auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+  .nx-nav-item { text-align: left; border-radius: 0.5rem; padding: 1rem 1.5rem; font-size: 1rem;}
   .nx-nav-item.nx-active::after { display: none; }
-  .nx-nav-item.nx-active { 
-    background: rgba(255, 255, 255, 0.05); 
-    border-left: 3px solid var(--orb-orange); 
-    border-radius: 0 0.5rem 0.5rem 0;
-  }
-  
-  .nx-bento-grid, .nx-bento-row-asym, .nx-bento-row-social, .nx-design-masonry { gap: 1.5rem; }
+  .nx-nav-item.nx-active { background: rgba(255, 255, 255, 0.05); border-left: 3px solid var(--orb-orange); border-radius: 0 0.5rem 0.5rem 0; }
+}
+
+/* TIER 4: DESKTOP PRO / ULTRAWIDE (1440px+) */
+@media (min-width: 1440px) {
+  .nx-portfolio-wrapper { max-width: 1300px; padding: 5rem 2rem; }
+  .nx-sidebar-wrapper { width: 340px; }
+  .nx-mobile-frame { gap: 5rem; }
+  .nx-base-card { min-height: 540px; }
   .nx-dev-stack { gap: 3rem; }
 }

@@ -119,13 +119,23 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
   font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 1px; 
 }
 
-.nx-box-text { 
-  color: white; font-weight: 600; font-size: 1.1rem; text-decoration: none; 
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; 
-  width: 100%; height: 100%; transition: transform 0.3s ease; 
+/* ESTRUCTURA INTERNA MICRO-CARDS (BENTO GRID) */
+.nx-box-content { 
+  display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  width: 100%; height: 100%; text-decoration: none; color: white;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 1rem;
 }
-.nx-box-text i { font-size: 1.8rem; }
-.nx-box-text:hover { transform: scale(1.05); }
+.nx-box:hover .nx-box-content { transform: scale(1.05); }
+
+.nx-box-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.nx-box-title { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; margin: 0 0 0.2rem 0; line-height: 1; }
+.nx-box-subtitle { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 400; color: rgba(255, 255, 255, 0.6); margin: 0; letter-spacing: 0.5px; }
+
+/* Ajuste específico para la fila de 3 (Filiustec, LinkedIn, Notbook) por espacio reducido */
+.nx-bento-row-asym .nx-box-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.nx-bento-row-asym .nx-box-title { font-size: 0.85rem; }
+.nx-bento-row-asym .nx-box-subtitle { font-size: 0.65rem; }
 
 .nx-project-title { font-size: 1.5rem; color: #fff; margin: 0; }
 .nx-project-tech { font-size: 0.9rem; color: var(--orb-purple); font-weight: 600; margin: 0; }

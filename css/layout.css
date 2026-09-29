@@ -201,11 +201,19 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
   transition: transform 0.5s ease, filter 0.5s ease; 
 }
 
-/* Enlaces a los assets locales */
-.nx-img-lpemberthy { background-image: url('../assets/images/LPemberthy.webp'); }
-.nx-img-vivasolar { background-image: url('../assets/images/VivaSolar.webp'); }
-.nx-img-filiustec { background-image: url('../assets/images/FiliusTec.png'); /* Usando la captura de la web como cover */ }
-.nx-img-botas { background-image: url('../assets/images/BotasDeSeguridad.webp'); }
+/* IMÁGENES DE PROYECTOS (MOBILE-FIRST - FORMATO VERTICAL WEBP) */
+.nx-img-lpemberthy { background-image: url('../assets/images/LPemberthy-mobile.webp'); }
+.nx-img-vivasolar { background-image: url('../assets/images/VivaSolar-mobile.webp'); }
+.nx-img-filiustec { background-image: url('../assets/images/FiliusTec-mobile.webp'); }
+.nx-img-botas { background-image: url('../assets/images/BotasDeSeguridad-mobile.webp'); }
+
+/* IMÁGENES DE PROYECTOS (DESKTOP - FORMATO HORIZONTAL WEBP) */
+@media (min-width: 992px) {
+  .nx-img-lpemberthy { background-image: url('../assets/images/LPemberthy.webp'); }
+  .nx-img-vivasolar { background-image: url('../assets/images/VivaSolar.webp'); }
+  .nx-img-filiustec { background-image: url('../assets/images/FiliusTec.webp'); }
+  .nx-img-botas { background-image: url('../assets/images/BotasDeSeguridad.webp'); }
+}
 .nx-project-details-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 19, 38, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; flex-direction: column; transform: translateY(calc(100% - 7.5rem)); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 5; cursor: pointer; }
 .nx-project-card:not(.nx-open) .nx-project-details-overlay:hover { transform: translateY(calc(100% - 8rem)); background: rgba(11, 19, 38, 0.95); }
 .nx-drag-indicator { width: 3rem; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.3); margin: 1.2rem auto; }

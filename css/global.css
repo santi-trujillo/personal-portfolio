@@ -57,8 +57,9 @@
 body { 
   background-color: #000; 
   min-height: 100vh; 
-  display: flex; 
-  justify-content: center; 
-  padding: 0; /* SE ELIMINÓ EL PADDING DE 3rem 1rem */
+  /* Se elimina display: flex y justify-content para evitar el sangrado horizontal */
+  display: block; 
+  padding: 0; 
+  margin: 0; 
   overflow-x: hidden; 
 }

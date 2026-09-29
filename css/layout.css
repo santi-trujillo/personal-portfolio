@@ -149,6 +149,9 @@
   .nx-views-container { 
     flex: 1; 
     min-width: 0; 
+    /* Alineación perfecta con la tarjeta azul:
+       100px (padding-top del sidebar) - 3rem (margin-top del sidebar) */
+    margin-top: calc(100px - 3rem);
   }
   
   /* Tarjeta estirada con nueva geometría para el hueco del avatar gigante */

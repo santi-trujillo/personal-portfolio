@@ -134,8 +134,8 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 
   .nx-portfolio-wrapper { 
     max-width: 1440px; 
-    /* CORRECCIÓN: 10rem de techo. El avatar toma 5rem hacia arriba, dejando 5rem de respiro visual exacto */
-    padding: 10rem 4vw 4rem 4vw; 
+    /* MICRO-AJUSTE: De 10rem a 8.8rem para clavar los ~155px de techo */
+    padding: 8.8rem 4vw 4rem 4vw; 
   }
   
   .nx-mobile-frame { 
@@ -149,8 +149,8 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
     width: clamp(280px, 24vw, 380px); 
     flex-shrink: 0; 
     position: sticky; 
-    /* CORRECCIÓN: 8rem de anclaje. 8rem (top) - 5rem (avatar) = 3rem de margen libre de la pantalla al hacer scroll */
-    top: 8rem; 
+    /* MICRO-AJUSTE: Sincronizado a 6.5rem para mantener el respiro del avatar en el scroll */
+    top: 6.5rem; 
     z-index: 10;
   }
   

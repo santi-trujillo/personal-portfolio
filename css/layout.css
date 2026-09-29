@@ -154,7 +154,12 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 
 /* Módulos Bento & Proyectos */
 .nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
-.nx-box { border-radius: var(--radius-box); width: 100%; box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); }
+.nx-box { 
+  text-decoration: none; /* ELIMINA LA LÍNEA AZUL */
+  border-radius: var(--radius-box); width: 100%; 
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2); 
+  border: 1px solid rgba(255, 255, 255, 0.08); 
+}
 .nx-box-wa { background: radial-gradient(circle at 100% 0%, var(--orb-wa) 0%, transparent 65%), var(--base-wa); height: 6rem; }
 .nx-box-correo { background: radial-gradient(circle at 0% 100%, var(--orb-correo) 0%, transparent 70%), var(--base-correo); height: 6rem; }
 .nx-box-github { background: radial-gradient(circle at 50% -20%, var(--orb-github) 0%, transparent 60%), var(--base-github); height: 7.5rem; grid-column: 1 / -1; }

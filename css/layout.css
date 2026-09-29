@@ -134,13 +134,14 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 
   .nx-portfolio-wrapper { 
     max-width: 1440px; 
-    padding: 5rem 4vw; /* Padding lateral fluido */
+    /* CORRECCIÓN: 10rem de techo. El avatar toma 5rem hacia arriba, dejando 5rem de respiro visual exacto */
+    padding: 10rem 4vw 4rem 4vw; 
   }
   
   .nx-mobile-frame { 
     flex-direction: row; 
     align-items: flex-start; 
-    gap: clamp(2rem, 4vw, 5rem); /* Separación elástica */
+    gap: clamp(2rem, 4vw, 5rem); 
   }
   
   /* Sidebar controlado: Fluye con la pantalla pero tiene límites estrictos */
@@ -148,7 +149,8 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
     width: clamp(280px, 24vw, 380px); 
     flex-shrink: 0; 
     position: sticky; 
-    top: 4rem; 
+    /* CORRECCIÓN: 8rem de anclaje. 8rem (top) - 5rem (avatar) = 3rem de margen libre de la pantalla al hacer scroll */
+    top: 8rem; 
     z-index: 10;
   }
   

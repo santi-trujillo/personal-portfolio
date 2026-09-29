@@ -5,8 +5,10 @@
 /* 1. BASE VERTICAL (Móviles y Tablets Portrait) */
 .nx-portfolio-wrapper { 
   position: relative; width: 100%; 
-  max-width: 480px; /* Límite crucial para evitar estiramiento en tablets verticales */
-  margin: 0 auto; transition: max-width 0.3s ease, padding 0.3s ease;
+  max-width: 480px; 
+  margin: 0 auto; 
+  padding: 2rem 1rem; /* NUEVO: Padding base controlado */
+  transition: max-width 0.3s ease, padding 0.3s ease;
 }
 
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
@@ -125,8 +127,8 @@
   }
 
   .nx-portfolio-wrapper { 
-    max-width: 1440px; /* Lienzo mucho más amplio */
-    padding: 5rem 3rem; 
+    max-width: 1440px; 
+    padding: 2rem; /* ANTES: 5rem 3rem. Ahora maximiza el espacio útil */
   }
   
   .nx-mobile-frame { 

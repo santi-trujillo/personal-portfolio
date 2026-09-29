@@ -59,6 +59,6 @@ body {
   min-height: 100vh; 
   display: flex; 
   justify-content: center; 
-  padding: 3rem 1rem; 
+  padding: 0; /* SE ELIMINÓ EL PADDING DE 3rem 1rem */
   overflow-x: hidden; 
 }

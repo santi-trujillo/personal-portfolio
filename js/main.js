@@ -14,27 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Toggler de Tarjetas de Proyecto (Dev View - Bottom Sheet Peek)
-  const overlays = document.querySelectorAll('.nx-project-details-overlay');
-  
-  overlays.forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-      const card = overlay.closest('.nx-project-card');
-      // Solo permite alternar si hace click en el header asomado, 
-      // o cierra si está abierto y hacen click en el indicador de arrastre superior
-      card.classList.toggle('nx-open');
-    });
-  });
+  // 2. Toggler Accesible (Click + Teclado) para Dev y PM
+  const bindAccessibleToggle = (elements, toggleClass) => {
+    elements.forEach(el => {
+      const toggleAction = (e) => {
+        // Previene scroll si se usa la barra espaciadora
+        if(e.type === 'keydown' && e.key === ' ') e.preventDefault(); 
+        
+        const card = el.closest('.nx-project-card') || el;
+        const isOpen = card.classList.toggle(toggleClass);
+        el.setAttribute('aria-expanded', isOpen);
+      };
 
-  // 3. Toggler de Acordeones PM
-  const pmCards = document.querySelectorAll('.nx-pm-card');
-  
-  pmCards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Opcional: Si quieres que al abrir uno se cierren los demás, descomenta esto:
-      // pmCards.forEach(c => { if(c !== card) c.classList.remove('nx-open'); });
-      
-      card.classList.toggle('nx-open');
+      el.addEventListener('click', toggleAction);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          toggleAction(e);
+        }
+      });
     });
-  });
+  };
+
+  bindAccessibleToggle(document.querySelectorAll('.nx-project-details-overlay'), 'nx-open');
+  bindAccessibleToggle(document.querySelectorAll('.nx-pm-card'), 'nx-open');
 });

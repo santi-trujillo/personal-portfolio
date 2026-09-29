@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santiago Trujillo | Portafolio</title>
+  <meta name="description" content="Portafolio de Santiago Trujillo, Project Manager y Frontend Developer radicado en Ibagué y Bogotá. Especialista en liderazgo de proyectos IT y ecosistemas e-commerce.">
+  <meta property="og:title" content="Santiago Trujillo | Project Manager & Frontend">
+  <meta property="og:description" content="Liderazgo de proyectos IT, desarrollo web y estrategias e-commerce.">
+  <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./css/global.css">
   <link rel="stylesheet" href="./css/layout.css?v=FINAL">
-  <link rel="stylesheet" href="./css/components.css">
 </head>
 <body>
   <main class="nx-portfolio-wrapper">
@@ -55,10 +58,11 @@
         
         <!-- VISTA 1: General (Bento Grid) -->
         <div id="view-general" class="nx-view nx-active-view">
+          <h2 class="sr-only">Perfil Social</h2>
           <div class="nx-bento-grid">
             
             <!-- CAJA WHATSAPP ACTUALIZADA -->
-            <a href="https://wa.me/573238789853" target="_blank" class="nx-box nx-box-wa">
+            <a href="https://wa.me/573238789853" target="_blank" rel="noopener noreferrer" class="nx-box nx-box-wa">
               <div class="nx-box-content">
                 <i class="fa-brands fa-whatsapp nx-box-icon"></i>
                 <h4 class="nx-box-title">WhatsApp</h4>
@@ -74,7 +78,7 @@
               </div>
             </a>
             
-            <a href="https://github.com/santi-trujillo" target="_blank" class="nx-box nx-box-github">
+            <a href="https://github.com/santi-trujillo" target="_blank" rel="noopener noreferrer" class="nx-box nx-box-github">
               <div class="nx-box-content">
                 <i class="fa-brands fa-github nx-box-icon"></i>
                 <h4 class="nx-box-title">GitHub</h4>
@@ -84,14 +88,14 @@
             
             <div class="nx-bento-row-asym">
               <!-- CAJA FILIUSTEC CON LOGO CUSTOM -->
-              <a href="https://filiustec.me/" target="_blank" class="nx-box nx-box-filiustec">
+              <a href="https://filiustec.me/" target="_blank" rel="noopener noreferrer" class="nx-box nx-box-filiustec">
                 <div class="nx-box-content">
                   <img src="./assets/images/FiliusIconB.png" alt="Filiustec Logo" class="nx-box-icon" style="height: 2.5rem; width: auto; object-fit: contain;">
                   <h4 class="nx-box-title">Filiustec</h4>
                   <p class="nx-box-subtitle">filiustec.me</p>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/in/santiago-trujillo-v" target="_blank" class="nx-box nx-box-in">
+              <a href="https://www.linkedin.com/in/santiago-trujillo-v" target="_blank" rel="noopener noreferrer" class="nx-box nx-box-in">
                 <div class="nx-box-content">
                   <i class="fa-brands fa-linkedin-in nx-box-icon"></i>
                   <h4 class="nx-box-title">LinkedIn</h4>
@@ -108,14 +112,14 @@
             </div>
 
             <div class="nx-bento-row-social">
-              <a href="https://www.instagram.com/santi.trujillo.v" target="_blank" class="nx-box nx-box-ig">
+              <a href="https://www.instagram.com/santi.trujillo.v" target="_blank" rel="noopener noreferrer" class="nx-box nx-box-ig">
                 <div class="nx-box-content">
                   <i class="fa-brands fa-instagram nx-box-icon"></i>
                   <h4 class="nx-box-title">Instagram</h4>
                   <p class="nx-box-subtitle">@santi.trujillo.v</p>
                 </div>
               </a>
-              <a href="https://www.facebook.com/share/1KZ6LZWro1/" target="_blank" class="nx-box nx-box-fb">
+              <a href="https://www.facebook.com/share/1KZ6LZWro1/" target="_blank" rel="noopener noreferrer" class="nx-box nx-box-fb">
                 <div class="nx-box-content">
                   <i class="fa-brands fa-facebook-f nx-box-icon"></i>
                   <h4 class="nx-box-title">Facebook</h4>
@@ -129,9 +133,10 @@
 
         <!-- VISTA 2 (NUEVO ORDEN): PM (Tablero Gerencial) -->
         <div id="view-pm" class="nx-view">
+          <h2 class="sr-only">Experiencia en Project Management</h2>
           <div class="nx-pm-list">
             
-            <div class="nx-pm-card">
+            <div class="nx-pm-card" tabindex="0" role="button" aria-expanded="false">
               <div class="nx-pm-header">
                 <h3 class="nx-pm-title">FiliusTec - Gerencia IT & E-commerce</h3>
                 <div class="nx-pm-expand-icon">+</div>
@@ -143,7 +148,7 @@
               </div>
             </div>
 
-            <div class="nx-pm-card">
+            <div class="nx-pm-card" tabindex="0" role="button" aria-expanded="false">
               <div class="nx-pm-header">
                 <h3 class="nx-pm-title">Tomker & NevatiHome - Dirección y Logística</h3>
                 <div class="nx-pm-expand-icon">+</div>
@@ -155,7 +160,7 @@
               </div>
             </div>
 
-            <div class="nx-pm-card">
+            <div class="nx-pm-card" tabindex="0" role="button" aria-expanded="false">
               <div class="nx-pm-header">
                 <h3 class="nx-pm-title">Ciento3 - Project Management Web</h3>
                 <div class="nx-pm-expand-icon">+</div>
@@ -167,7 +172,7 @@
               </div>
             </div>
 
-            <div class="nx-pm-card">
+            <div class="nx-pm-card" tabindex="0" role="button" aria-expanded="false">
               <div class="nx-pm-header">
                 <h3 class="nx-pm-title">Enel Codensa - Gestión Corporativa</h3>
                 <div class="nx-pm-expand-icon">+</div>
@@ -184,12 +189,13 @@
 
         <!-- VISTA 3: Dev -->
         <div id="view-dev" class="nx-view">
+          <h2 class="sr-only">Proyectos de Desarrollo</h2>
           <div class="nx-dev-stack">
             
             <!-- Proyecto 1: LPemberthy Contable -->
             <div class="nx-project-card">
-              <a href="https://lpemberthy.vercel.app/" target="_blank" class="nx-project-image nx-img-lpemberthy"></a>
-              <div class="nx-project-details-overlay">
+              <a href="https://lpemberthy.vercel.app/" target="_blank" rel="noopener noreferrer" class="nx-project-image nx-img-lpemberthy"></a>
+              <div class="nx-project-details-overlay" tabindex="0" role="button" aria-expanded="false">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
                   <h3 class="nx-project-title">LPemberthy Contable</h3>
@@ -197,15 +203,15 @@
                 </div>
                 <div class="nx-project-details-body">
                   <p class="nx-project-desc">Rediseño integral de sitio web para firma de abogados, enfocado en optimización de conversión y arquitectura Mobile-First.</p>
-                  <a href="https://lpemberthy.vercel.app/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
+                  <a href="https://lpemberthy.vercel.app/" target="_blank" rel="noopener noreferrer" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
 
             <!-- Proyecto 2: VivaSolar Colombia -->
             <div class="nx-project-card">
-              <a href="https://vivasolar-colombia.netlify.app/" target="_blank" class="nx-project-image nx-img-vivasolar"></a>
-              <div class="nx-project-details-overlay">
+              <a href="https://vivasolar-colombia.netlify.app/" target="_blank" rel="noopener noreferrer" class="nx-project-image nx-img-vivasolar"></a>
+              <div class="nx-project-details-overlay" tabindex="0" role="button" aria-expanded="false">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
                   <h3 class="nx-project-title">VivaSolar Colombia</h3>
@@ -213,15 +219,15 @@
                 </div>
                 <div class="nx-project-details-body">
                   <p class="nx-project-desc">Landing page corporativa de alto rendimiento para el sector de energías renovables en Colombia.</p>
-                  <a href="https://vivasolar-colombia.netlify.app/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
+                  <a href="https://vivasolar-colombia.netlify.app/" target="_blank" rel="noopener noreferrer" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
 
             <!-- Proyecto 3: FiliusTec Agency -->
             <div class="nx-project-card">
-              <a href="https://filiustec.me/" target="_blank" class="nx-project-image nx-img-filiustec"></a>
-              <div class="nx-project-details-overlay">
+              <a href="https://filiustec.me/" target="_blank" rel="noopener noreferrer" class="nx-project-image nx-img-filiustec"></a>
+              <div class="nx-project-details-overlay" tabindex="0" role="button" aria-expanded="false">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
                   <h3 class="nx-project-title">FiliusTec Agency</h3>
@@ -229,15 +235,15 @@
                 </div>
                 <div class="nx-project-details-body">
                   <p class="nx-project-desc">Plataforma oficial de agencia creativa. Desarrollo de identidad visual y maquetación de alta fidelidad.</p>
-                  <a href="https://filiustec.me/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
+                  <a href="https://filiustec.me/" target="_blank" rel="noopener noreferrer" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>
 
             <!-- Proyecto 4: Botas De Seguridad -->
             <div class="nx-project-card">
-              <a href="https://botasdeseguridad.myshopify.com/" target="_blank" class="nx-project-image nx-img-botas"></a>
-              <div class="nx-project-details-overlay">
+              <a href="https://botasdeseguridad.myshopify.com/" target="_blank" rel="noopener noreferrer" class="nx-project-image nx-img-botas"></a>
+              <div class="nx-project-details-overlay" tabindex="0" role="button" aria-expanded="false">
                 <div class="nx-drag-indicator"></div>
                 <div class="nx-project-peek-header">
                   <h3 class="nx-project-title">Botas De Seguridad</h3>
@@ -245,7 +251,7 @@
                 </div>
                 <div class="nx-project-details-body">
                   <p class="nx-project-desc">Desarrollo de tienda online en Shopify con personalización en Liquid para la venta de botas de seguridad.</p>
-                  <a href="https://botasdeseguridad.myshopify.com/" target="_blank" class="nx-btn-link">Visitar Proyecto</a>
+                  <a href="https://botasdeseguridad.myshopify.com/" target="_blank" rel="noopener noreferrer" class="nx-btn-link">Visitar Proyecto</a>
                 </div>
               </div>
             </div>

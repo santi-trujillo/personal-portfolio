@@ -63,3 +63,10 @@ body {
   margin: 0; 
   overflow-x: hidden; 
 }
+
+/* Accesibilidad: Oculto a la vista, visible para lectores de pantalla y bots (SEO) */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+/* Navegación por Teclado: Foco visible de alta accesibilidad */
+:focus-visible { outline: 3px solid var(--orb-orange); outline-offset: 4px; border-radius: 4px; transition: outline-offset 0.2s ease; }
+.nx-nav-item:focus-visible { outline: none; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem; }

@@ -13,7 +13,7 @@
   --gap-bento: 1.5rem;
 }
 
-body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #000; }
+body { overflow-x: hidden; }
 
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
 .nx-orb-orange { width: 300px; height: 300px; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }

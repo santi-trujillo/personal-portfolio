@@ -19,14 +19,15 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-orb-orange { width: 300px; height: 300px; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }
 .nx-orb-purple { width: 500px; height: 500px; background: var(--orb-purple); filter: blur(120px); bottom: -10%; left: -20%; }
 
-/* 1. MODO MÓVIL (Base Absoluta) */
+/* 1. MODO MÓVIL Y TABLET PORTRAIT (Base Absoluta) */
 .nx-portfolio-wrapper { 
   position: relative; 
   width: 100%; 
-  max-width: 480px; 
-  margin: 0 auto; /* Centrado seguro por bloque */
+  /* EXPANSIÓN: Sube de 480px a 800px para llenar las pantallas de tabletas */
+  max-width: 800px; 
+  margin: 0 auto; 
   padding: 8rem 1.5rem 2rem 1.5rem; 
-  box-sizing: border-box; /* Blinda el cálculo del ancho total */
+  box-sizing: border-box; 
 }
 
 .nx-mobile-frame { width: 100%; display: flex; flex-direction: column; gap: 4rem; align-items: center; }
@@ -125,16 +126,15 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 
 
 /* =========================================
-   2. DASHBOARD HORIZONTAL & FLUIDO (>992px)
+   2. DASHBOARD HORIZONTAL & FLUIDO (>1080px)
    ========================================= */
-@media (min-width: 992px) {
+/* RETRASO DEL BREAKPOINT: 1080px protege a los iPad Pro en modo vertical */
+@media (min-width: 1080px) {
   
-  /* Curva de escalado tipográfico suavizada */
   html { font-size: clamp(14px, 0.9vw + 6px, 18px); }
 
   .nx-portfolio-wrapper { 
     max-width: 1440px; 
-    /* MICRO-AJUSTE: De 10rem a 8.8rem para clavar los ~155px de techo */
     padding: 8.8rem 4vw 4rem 4vw; 
   }
   
@@ -144,30 +144,25 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
     gap: clamp(2rem, 4vw, 5rem); 
   }
   
-  /* Sidebar controlado: Fluye con la pantalla pero tiene límites estrictos */
   .nx-sidebar-wrapper { 
     width: clamp(280px, 24vw, 380px); 
     flex-shrink: 0; 
     position: sticky; 
-    /* MICRO-AJUSTE: Sincronizado a 6.5rem para mantener el respiro del avatar en el scroll */
     top: 6.5rem; 
     z-index: 10;
   }
   
-  /* ALINEACIÓN Y=0 PERFECTA */
   .nx-views-container { 
     flex: 1; 
     min-width: 0;
     margin-top: 0; 
   }
   
-  /* La tarjeta base ya no fuerza una altura gigante, se adapta a su contenido */
   .nx-base-card { 
     min-height: auto; 
     height: 100%;
   }
   
-  /* Menú SaaS adaptativo */
   .nx-nav-menu { 
     flex-direction: column; align-items: stretch; gap: 0.5rem; margin-top: auto; 
     padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); 

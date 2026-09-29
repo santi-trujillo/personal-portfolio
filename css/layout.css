@@ -1,11 +1,10 @@
 /* ==================================================
-   LAYOUT MAESTRO - FLUID SCALING (SANTIAGO TRUJILLO)
+   LAYOUT MAESTRO - FLUID SCALING & PERFECT Y-ALIGN
    ================================================== */
 
-/* 1. MOTOR DE FLUIDEZ Y GEOMETRÍA DINÁMICA */
 :root {
-  /* Todo convertido a rem para escalado proporcional masivo */
   --avatar-size: 10rem;
+  --avatar-half: 5rem;
   --cutout-size: 11rem;
   --cutout-offset: -5.5rem;
   --radius-box: 1rem;
@@ -14,48 +13,39 @@
   --gap-bento: 1.5rem;
 }
 
-/* En móviles, 1rem = 16px */
-html { font-size: 16px; }
-
-/* Purga global de padding restrictivo */
 body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #000; }
 
-/* 2. BASE VERTICAL (Móvil y Tablets Portrait) */
-.nx-portfolio-wrapper { 
-  position: relative; width: 100%; max-width: 32rem; /* Límite central para móviles */
-  margin: 0 auto; padding: 2rem 1.5rem; 
-}
-
 .nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
-.nx-orb-orange { width: 20rem; height: 20rem; background: var(--orb-orange); filter: blur(8rem); top: -5%; right: -10%; }
-.nx-orb-purple { width: 30rem; height: 30rem; background: var(--orb-purple); filter: blur(10rem); bottom: -10%; left: -20%; }
+.nx-orb-orange { width: 300px; height: 300px; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }
+.nx-orb-purple { width: 500px; height: 500px; background: var(--orb-purple); filter: blur(120px); bottom: -10%; left: -20%; }
 
-.nx-mobile-frame { width: 100%; display: flex; flex-direction: column; gap: 2rem; align-items: center; }
-
-/* Sidebar Wrapper (Mobile) */
-.nx-sidebar-wrapper {
-  width: 100%; position: relative; 
-  padding-top: calc(var(--avatar-size) / 2); /* Empuja la tarjeta exactamente la mitad del avatar */
-  display: flex; flex-direction: column; align-items: center;
+/* 1. MODO MÓVIL (Base) */
+.nx-portfolio-wrapper { 
+  position: relative; width: 100%; max-width: 480px; margin: 0 auto; 
+  padding: 8rem 1.5rem 2rem 1.5rem; /* 8rem arriba da espacio para el avatar que sobresale */
 }
 
-/* Avatar: Anclaje Matemático Absoluto */
+.nx-mobile-frame { width: 100%; display: flex; flex-direction: column; gap: 4rem; align-items: center; }
+
+/* Sidebar Wrapper: Inicia en Y=0 */
+.nx-sidebar-wrapper { width: 100%; position: relative; display: flex; flex-direction: column; }
+
+/* Avatar rompe la caja hacia arriba usando top negativo */
 .nx-avatar-box { 
   width: var(--avatar-size); height: var(--avatar-size); 
   background: var(--avatar-placeholder); border-radius: var(--radius-avatar); 
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10; 
+  position: absolute; top: calc(var(--avatar-half) * -1); left: 50%; transform: translateX(-50%); z-index: 10; 
   box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Tarjeta Base Elástica */
+/* Tarjeta Base: Inicia en Y=0 (alineada con Views Container) */
 .nx-base-card { 
   position: relative; z-index: 5; width: 100%; 
   background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
   border-radius: var(--radius-card);
-  padding: calc((var(--cutout-size) / 2) + 1.5rem) 1.5rem 1.5rem 1.5rem; 
+  padding: calc(var(--avatar-half) + 1.5rem) 1.5rem 1.5rem 1.5rem; 
   display: flex; flex-direction: column; gap: 1.5rem;
   
-  /* Máscara convertida a SVG Escalable con viewBox y mask-size fluido */
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 176 176'%3E%3Crect width='176' height='176' rx='40' fill='black'/%3E%3C/svg%3E"), linear-gradient(black, black);
   -webkit-mask-size: var(--cutout-size) var(--cutout-size), auto;
   -webkit-mask-position: 50% var(--cutout-offset), 0 0; 
@@ -76,12 +66,13 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 .nx-nav-item.nx-active { color: #ffffff; font-weight: 600; }
 .nx-nav-item.nx-active::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 2px; background: var(--orb-orange); border-radius: 2px; }
 
-.nx-views-container { width: 100%; position: relative; }
+/* Vistas */
+.nx-views-container { width: 100%; position: relative; margin-top: 0; }
 .nx-view { display: none; animation: fadeIn 0.4s ease-out forwards; }
 .nx-view.nx-active-view { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-/* MÓDULOS DE VISTAS EN REM */
+/* Módulos Bento & Proyectos */
 .nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
 .nx-box { border-radius: var(--radius-box); width: 100%; box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); }
 .nx-box-wa { background: radial-gradient(circle at 100% 0%, var(--orb-wa) 0%, transparent 65%), var(--base-wa); height: 6rem; }
@@ -130,43 +121,50 @@ body { padding: 0 !important; margin: 0; overflow-x: hidden; background-color: #
 
 
 /* =========================================
-   3. DASHBOARD HORIZONTAL & FLUIDO (>992px)
+   2. DASHBOARD (Horizontal > 992px)
    ========================================= */
 @media (min-width: 992px) {
-  /* MULTIPLICADOR MAGNÉTICO: Conforme la pantalla crece, 1rem crece proporcionalmente */
-  html { font-size: clamp(14px, 1vw + 4px, 22px); }
+  
+  /* Motor Fluido Notable: La fuente escala radicalmente en pantallas anchas */
+  html { font-size: calc(0.4vw + 10px); }
 
   .nx-portfolio-wrapper { 
-    max-width: 90vw; /* Fluye con el ancho de pantalla eliminando paddings muertos */
-    padding: 4rem 0; 
+    max-width: 95vw; 
+    padding: 8rem 2rem 2rem 2rem; 
   }
   
   .nx-mobile-frame { 
     flex-direction: row; 
     align-items: flex-start; 
-    gap: 4rem; /* Separación escalable */
+    gap: 4rem; 
   }
   
+  /* Sidebar fijo a la izquierda */
   .nx-sidebar-wrapper { 
-    width: 24rem; /* Volumen masivo y elástico */
+    width: 25rem; 
     flex-shrink: 0; 
     position: sticky; 
-    top: 2rem; 
+    top: 6rem; /* Baja un poco para respirar */
     z-index: 10;
   }
   
+  /* ALINEACIÓN Y=0 PERFECTA: El contenedor de vistas arranca exacto al ras de la caja azul */
   .nx-views-container { 
     flex: 1; 
-    min-width: 0; 
-    /* Alineación matemática: Las cajas inician exactamente en la misma coordenada Y que la tarjeta base */
-    margin-top: calc(var(--avatar-size) / 2);
+    min-width: 0;
+    margin-top: 0; 
   }
   
-  .nx-base-card { min-height: 38rem; }
+  .nx-base-card { 
+    min-height: 40rem; 
+  }
   
-  /* Menú SaaS adaptativo */
-  .nx-nav-menu { flex-direction: column; align-items: stretch; gap: 0.8rem; margin-top: auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
-  .nx-nav-item { width: 100%; padding: 1.2rem 2rem; text-align: left; border-radius: 0.8rem; font-size: 1.1rem; }
+  /* Menú SaaS Vertical */
+  .nx-nav-menu { 
+    flex-direction: column; align-items: stretch; gap: 0.8rem; margin-top: auto; 
+    padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); 
+  }
+  .nx-nav-item { width: 100%; padding: 1.2rem 2rem; text-align: left; border-radius: 0.8rem; font-size: 1.2rem; }
   .nx-nav-item.nx-active::after { display: none; }
   .nx-nav-item.nx-active { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--orb-orange); border-radius: 0 0.8rem 0.8rem 0; }
 }

@@ -140,7 +140,8 @@
     width: 380px; 
     flex-shrink: 0; 
     position: sticky; 
-    top: 5rem; 
+    top: 2rem; /* ANTES 5rem: Ahora se pega más cerca del techo al hacer scroll */
+    margin-top: -3rem; /* NUEVO: Hala el sidebar hacia arriba sin afectar el lienzo derecho */
     z-index: 10;
     padding-top: 100px; /* Mitad matemática del nuevo avatar de 200px */
   }

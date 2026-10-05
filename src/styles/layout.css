@@ -1,0 +1,330 @@
+/* ==================================================
+   LAYOUT MAESTRO - FLUID SCALING & PERFECT Y-ALIGN
+   ================================================== */
+
+:root {
+  --avatar-size: 10rem;
+  --avatar-half: 5rem;
+  --cutout-size: 11rem;
+  --cutout-offset: -5.5rem;
+  --radius-box: 1rem;
+  --radius-avatar: 2rem;
+  --radius-card: 2.5rem;
+  --gap-bento: 1.5rem;
+}
+
+body { overflow-x: hidden; }
+
+.nx-orb { position: fixed; border-radius: 50%; z-index: -1; }
+.nx-orb-orange { width: 300px; height: 300px; background: var(--orb-orange); filter: blur(100px); top: -5%; right: -10%; }
+.nx-orb-purple { width: 500px; height: 500px; background: var(--orb-purple); filter: blur(120px); bottom: -10%; left: -20%; }
+
+/* 1. MODO MÓVIL Y TABLET PORTRAIT (Base Absoluta Dinámica) */
+.nx-portfolio-wrapper { 
+  position: relative; 
+  /* Fluidez total: ocupa el 92% del ancho disponible hasta un máximo de 960px */
+  width: min(92vw, 960px); 
+  max-width: none; 
+  margin: 0 auto; 
+  padding: 8rem 1rem 2rem 1rem; 
+  box-sizing: border-box; 
+}
+
+.nx-mobile-frame { width: 100%; display: flex; flex-direction: column; gap: 4rem; align-items: center; }
+
+/* Sidebar Wrapper: Inicia en Y=0 */
+.nx-sidebar-wrapper { width: 100%; position: relative; display: flex; flex-direction: column; }
+
+/* Avatar rompe la caja hacia arriba usando top negativo */
+.nx-avatar-box { 
+  width: var(--avatar-size); height: var(--avatar-size); 
+  
+  /* CARGA DEL AVATAR 3D FINAL */
+  background-image: url('../assets/images/avatar.webp'); /* Cambiar extensión si es .jpg o .png */
+  background-size: cover;
+  background-position: center;
+  background-color: var(--orb-orange); /* Color de respaldo por si falla la carga */
+  
+  border-radius: var(--radius-avatar); 
+  position: absolute; top: calc(var(--avatar-half) * -1); left: 50%; transform: translateX(-50%); z-index: 10; 
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjeta Base: Inicia en Y=0 (alineada con Views Container) */
+.nx-base-card { 
+  position: relative; z-index: 5; width: 100%; 
+  background: linear-gradient(180deg, var(--card-grad-start) 0%, var(--card-grad-end) 100%);
+  border-radius: var(--radius-card);
+  padding: calc(var(--avatar-half) + 1.5rem) 1.5rem 1.5rem 1.5rem; 
+  display: flex; flex-direction: column; gap: 1.5rem;
+  
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 176 176'%3E%3Crect width='176' height='176' rx='40' fill='black'/%3E%3C/svg%3E"), linear-gradient(black, black);
+  -webkit-mask-size: var(--cutout-size) var(--cutout-size), auto;
+  -webkit-mask-position: 50% var(--cutout-offset), 0 0; 
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: destination-out; mask-composite: exclude;
+  
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.08), inset 0 -4px 10px rgba(0, 0, 0, 0.5), 0 16px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nx-wireframe-header { width: 60%; height: 2.5rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; margin: 0 auto 2rem auto; }
+.nx-wireframe-bio { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: auto; }
+.nx-wireframe-bio-line { height: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.3rem; }
+
+.nx-nav-menu { display: flex; justify-content: center; align-items: center; gap: 2rem; width: 100%; margin-top: auto; padding-top: 1rem; }
+.nx-nav-item { background: transparent; border: none; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; font-weight: 700; font-family: 'Poppins', sans-serif; cursor: pointer; padding-bottom: 0.4rem; position: relative; transition: background 0.3s ease; }
+.nx-nav-item:hover { color: rgba(255, 255, 255, 0.8); }
+.nx-nav-item.nx-active { color: #ffffff; font-weight: 600; }
+.nx-nav-item::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 80%; height: 2px; background: var(--orb-orange); border-radius: 2px; transform: translateX(-50%) scaleX(0); opacity: 0; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease; }
+.nx-nav-item.nx-active::after { transform: translateX(-50%) scaleX(1); opacity: 1; }
+
+/* TIPOGRAFÍA DE PERFIL AL ESTILO FIGMA (ALTA FIDELIDAD) */
+.nx-profile-container { 
+  display: inline-flex; flex-direction: column; 
+  justify-content: flex-start; align-items: flex-start; 
+  gap: 2rem; /* Equivalente a los 32px del Figma */
+  width: 100%;
+}
+
+.nx-profile-header { 
+  display: flex; flex-direction: column; 
+  justify-content: flex-start; align-items: center; 
+  gap: 0.4rem; /* 7px */
+  width: 100%;
+}
+
+.nx-profile-name { 
+  color: white; font-size: 1.5rem; /* 24px */
+  font-family: 'Poppins', sans-serif; font-weight: 600; 
+  line-height: 1.2; margin: 0; text-align: center;
+}
+
+.nx-profile-list { 
+  display: inline-flex; flex-direction: column; 
+  justify-content: center; align-items: flex-start; 
+  gap: 0.8rem; /* Aumentado ligeramente para legibilidad web */
+  list-style: none; padding: 0; margin: 0; 
+}
+
+.nx-profile-list li { 
+  color: white; font-size: 0.9rem; /* Escala base */
+  font-family: 'Inter', sans-serif; font-weight: 400; 
+  letter-spacing: 1px; /* El toque premium del Figma */
+  display: flex; align-items: center; gap: 0.6rem;
+}
+
+.nx-profile-list li span { font-size: 1.1rem; }
+
+.nx-profile-footer { 
+  display: inline-flex; justify-content: flex-start; align-items: flex-start; 
+  gap: 15px; margin-top: 1rem; border-top: none; /* Se quita el borde para apegarse al Figma */
+}
+
+.nx-profile-footer-item { 
+  display: flex; justify-content: flex-start; align-items: center; gap: 0.4rem; 
+  color: white; font-size: 0.8rem; 
+  font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 1px; 
+}
+
+/* ESTRUCTURA INTERNA MICRO-CARDS (BENTO GRID) */
+.nx-box-content { 
+  display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  width: 100%; height: 100%; text-decoration: none; color: white;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 1rem;
+}
+.nx-box:hover .nx-box-content { transform: scale(1.05); }
+
+.nx-box-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.nx-box-title { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; margin: 0 0 0.2rem 0; line-height: 1; text-transform: uppercase; }
+.nx-box-subtitle { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: rgba(255, 255, 255, 0.6); margin: 0; letter-spacing: 0.5px; }
+
+/* EL SECRETO CONTRA EL DESBORDAMIENTO: minmax(0, 1fr) */
+.nx-bento-row-asym { 
+  grid-column: 1 / -1; 
+  display: grid; 
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Fuerza la contención estricta */
+  gap: 0.6rem; /* Reducimos el gap en móvil para darles más ancho útil a las cajas */
+}
+
+/* Ajustes de oxígeno interno para las 3 micro-cards en móvil */
+.nx-bento-row-asym .nx-box-content {
+  padding: 0.8rem 0.4rem; /* Menos padding lateral para que quepa la información */
+}
+.nx-bento-row-asym .nx-box-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+.nx-bento-row-asym .nx-box-title { font-size: 0.75rem; } 
+.nx-bento-row-asym .nx-box-subtitle { font-size: 0.6rem; }
+
+/* Restauración del volumen original para Tabletas y Escritorio (>768px) */
+@media (min-width: 768px) {
+  .nx-bento-row-asym { gap: var(--gap-bento); }
+  .nx-bento-row-asym .nx-box-content { padding: 1rem; }
+  .nx-bento-row-asym .nx-box-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+  .nx-bento-row-asym .nx-box-title { font-size: 0.9rem; }
+  .nx-bento-row-asym .nx-box-subtitle { font-size: 0.7rem; }
+}
+
+.nx-project-title { font-size: 1.5rem; color: #fff; margin: 0; }
+.nx-project-tech { font-size: 0.9rem; color: var(--orb-purple); font-weight: 600; margin: 0; }
+.nx-project-desc { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.5; margin: 0; }
+.nx-btn-link { display: inline-block; padding: 0.8rem 1.5rem; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; border-radius: 0.5rem; text-align: center; margin-top: 1rem; border: 1px solid rgba(255,255,255,0.2); transition: background 0.3s; }
+.nx-btn-link:hover { background: rgba(255,255,255,0.2); }
+
+.nx-pm-title { font-size: 1.1rem; color: #fff; font-weight: 600; margin: 0; }
+.nx-pm-text { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin: 0; }
+
+/* Vistas */
+.nx-views-container { width: 100%; position: relative; margin-top: 0; }
+.nx-view { display: none; animation: fadeIn 0.4s ease-out forwards; }
+.nx-view.nx-active-view { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Módulos Bento & Proyectos */
+.nx-bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
+.nx-box { 
+  text-decoration: none; /* ELIMINA LA LÍNEA AZUL */
+  border-radius: var(--radius-box); width: 100%; 
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.18), inset 0 -3px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2); 
+  border: 1px solid rgba(255, 255, 255, 0.08); 
+}
+.nx-box-wa { background: radial-gradient(circle at 100% 0%, var(--orb-wa) 0%, transparent 65%), var(--base-wa); height: 6rem; }
+.nx-box-correo { background: radial-gradient(circle at 0% 100%, var(--orb-correo) 0%, transparent 70%), var(--base-correo); height: 6rem; }
+.nx-box-github { background: radial-gradient(circle at 50% -20%, var(--orb-github) 0%, transparent 60%), var(--base-github); height: 7.5rem; grid-column: 1 / -1; }
+/* Nuevo nodo LinkedIn y fila de 3 columnas */
+:root { --base-in: #0A66C2; --orb-in: rgba(10, 102, 194, 0.8); }
+.nx-box-in { background: radial-gradient(circle at 50% 0%, var(--orb-in) 0%, transparent 60%), var(--base-in); height: 11rem; }
+.nx-box-filiustec { background: radial-gradient(circle at 100% 100%, var(--orb-filius-1) 0%, transparent 65%), radial-gradient(circle at 0% 0%, var(--orb-filius-2) 0%, transparent 65%), var(--base-filius); height: 11rem; }
+.nx-box-notbook { background: radial-gradient(circle at 100% 100%, var(--orb-notbook) 0%, transparent 80%), var(--base-notbook); height: 11rem; }
+.nx-bento-row-social { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-bento); }
+.nx-box-ig { background: radial-gradient(circle at 0% 100%, var(--orb-ig-1) 0%, transparent 60%), radial-gradient(circle at 100% 0%, var(--orb-ig-2) 0%, transparent 60%), var(--base-ig); height: 6rem; }
+.nx-box-fb { background: radial-gradient(circle at 50% 120%, var(--orb-fb) 0%, transparent 70%), var(--base-fb); height: 6rem; }
+
+.nx-dev-stack { display: flex; flex-direction: column; gap: 3rem; width: 100%; }
+.nx-project-card { position: relative; width: 100%; height: 26rem; border-radius: var(--radius-card); overflow: hidden; background: #12141D; box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 16px 32px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); }
+/* IMÁGENES DE PROYECTOS (Clicables) */
+.nx-project-image { 
+  display: block; width: 100%; height: 100%; 
+  background-size: cover; background-position: center top; background-repeat: no-repeat;
+  transition: transform 0.5s ease; 
+}
+.nx-project-image::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* IMÁGENES DE PROYECTOS (MOBILE-FIRST - FORMATO VERTICAL WEBP) */
+.nx-img-lpemberthy { background-image: url('../assets/images/LPemberthy-mobile.webp'); }
+.nx-img-vivasolar { background-image: url('../assets/images/VivaSolar-mobile.webp'); }
+.nx-img-filiustec { background-image: url('../assets/images/FiliusTec-mobile.webp'); }
+.nx-img-botas { background-image: url('../assets/images/BotasDeSeguridad-mobile.webp'); }
+
+/* IMÁGENES DE PROYECTOS (DESKTOP - FORMATO HORIZONTAL WEBP) */
+@media (min-width: 992px) {
+  .nx-img-lpemberthy { background-image: url('../assets/images/LPemberthy.webp'); }
+  .nx-img-vivasolar { background-image: url('../assets/images/VivaSolar.webp'); }
+  .nx-img-filiustec { background-image: url('../assets/images/FiliusTec.webp'); }
+  .nx-img-botas { background-image: url('../assets/images/BotasDeSeguridad.webp'); }
+}
+.nx-project-details-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 19, 38, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; flex-direction: column; transform: translateY(calc(100% - 7.5rem)); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 5; cursor: pointer; }
+.nx-project-card:not(.nx-open) .nx-project-details-overlay:hover { transform: translateY(calc(100% - 8rem)); background: rgba(11, 19, 38, 0.95); }
+.nx-drag-indicator { width: 3rem; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.3); margin: 1.2rem auto; }
+.nx-project-peek-header { padding: 0 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.nx-wireframe-title { height: 1.5rem; background: rgba(255, 255, 255, 0.15); border-radius: 0.4rem; }
+.nx-wireframe-text-faded { display: flex; flex-direction: column; gap: 0.6rem; -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%); mask-image: linear-gradient(to bottom, black 30%, transparent 100%); transition: mask-image 0.3s ease; }
+.nx-project-details-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; opacity: 0; transition: opacity 0.3s ease; }
+.nx-project-card.nx-open .nx-project-details-overlay { transform: translateY(0); cursor: default; }
+/* El efecto de zoom al abrir el detalle se mantiene, optimizado con opacity sobre ::after para evitar repaints */
+.nx-project-card.nx-open .nx-project-image { transform: scale(1.05); }
+.nx-project-card.nx-open .nx-project-image::after { opacity: 1; }
+.nx-project-card.nx-open .nx-wireframe-text-faded { -webkit-mask-image: none; mask-image: none; }
+.nx-project-card.nx-open .nx-project-details-body { opacity: 1; transition-delay: 0.2s; }
+
+.nx-pm-list { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
+.nx-pm-card { background: #12141D; border-radius: var(--radius-box); padding: 1.5rem; box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.nx-pm-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+.nx-pm-header { display: flex; justify-content: space-between; align-items: center; }
+.nx-pm-expand-icon { color: rgba(255, 255, 255, 0.5); font-size: 2rem; font-weight: 300; line-height: 1; transition: transform 0.3s ease; }
+.nx-pm-body-wrapper { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.nx-pm-body { overflow: hidden; display: flex; flex-direction: column; gap: 0.8rem; opacity: 0; transition: opacity 0.3s ease; padding-top: 0; }
+.nx-pm-card.nx-open { border-color: var(--orb-orange); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 12px 24px rgba(0, 0, 0, 0.4); }
+.nx-pm-card.nx-open .nx-pm-expand-icon { transform: rotate(45deg); color: var(--orb-orange); }
+.nx-pm-card.nx-open .nx-pm-body-wrapper { grid-template-rows: 1fr; }
+.nx-pm-card.nx-open .nx-pm-body { opacity: 1; padding-top: 1.5rem; transition-delay: 0.1s; }
+
+.nx-design-masonry { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-bento); width: 100%; }
+.nx-design-col { display: flex; flex-direction: column; gap: var(--gap-bento); }
+.nx-design-card { width: 100%; background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%), #12141D; border-radius: var(--radius-box); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
+.nx-card-tall { height: 18rem; }
+.nx-card-square { aspect-ratio: 1; }
+.nx-design-card:hover { transform: translateY(-0.5rem) scale(1.02); border-color: rgba(255, 255, 255, 0.2); box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5); z-index: 2; }
+
+
+/* Micro-ajuste proporcional para Tablets (768px - 1079px) */
+@media (min-width: 768px) and (max-width: 1079px) {
+  html { 
+    font-size: clamp(16px, 1.1vw + 7px, 20px); 
+  }
+
+  .nx-bento-grid { 
+    gap: 1.8rem; 
+  }
+
+  .nx-nav-item { 
+    font-size: 1.05rem; 
+  }
+}
+
+/* =========================================
+   2. DASHBOARD HORIZONTAL & FLUIDO (>1080px)
+   ========================================= */
+/* RETRASO DEL BREAKPOINT: 1080px protege a los iPad Pro en modo vertical */
+@media (min-width: 1080px) {
+  
+  html { font-size: clamp(14px, 0.9vw + 6px, 18px); }
+
+  .nx-portfolio-wrapper { 
+    /* CORRECCIÓN: Rompe la atadura de los 960px y le devuelve el ancho total al lienzo */
+    width: 100%; 
+    max-width: 1440px; 
+    padding: 8.8rem 4vw 4rem 4vw; 
+  }
+  
+  .nx-mobile-frame { 
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: clamp(2rem, 4vw, 5rem); 
+  }
+  
+  .nx-sidebar-wrapper { 
+    width: clamp(280px, 24vw, 380px); 
+    flex-shrink: 0; 
+    position: sticky; 
+    top: 6.5rem; 
+    z-index: 10;
+  }
+  
+  .nx-views-container { 
+    flex: 1; 
+    min-width: 0;
+    margin-top: 0; 
+  }
+  
+  .nx-base-card { 
+    min-height: auto; 
+    height: 100%;
+  }
+  
+  .nx-nav-menu { 
+    flex-direction: column; align-items: stretch; gap: 0.5rem; margin-top: auto; 
+    padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); 
+  }
+  .nx-nav-item { width: 100%; padding: 1rem 1.5rem; text-align: left; border-radius: 0.8rem; font-size: 1rem; }
+  .nx-nav-item.nx-active::after { display: none; }
+  .nx-nav-item.nx-active { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--orb-orange); border-radius: 0 0.8rem 0.8rem 0; }
+}

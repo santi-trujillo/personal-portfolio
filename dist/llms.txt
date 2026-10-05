@@ -1,9 +1,0 @@
-# Portafolio de Santiago Trujillo
-Soy Santiago Trujillo, Project Manager y Frontend Developer radicado en Ibagué y Bogotá.
-Este portafolio presenta mi experiencia en liderazgo de proyectos IT, ecosistemas e-commerce y desarrollo web frontend.
-
-## Contacto y Redes
-- [GitHub](https://github.com/santi-trujillo)
-- [LinkedIn](https://www.linkedin.com/in/santiago-trujillo-v)
-- [WhatsApp](https://wa.me/573238789853)
-- [FiliusTec](https://filiustec.me/)
